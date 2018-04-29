@@ -1,0 +1,6 @@
+framework module Pods_Bruin4BruinUITests {
+  umbrella header "Pods-Bruin4BruinUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

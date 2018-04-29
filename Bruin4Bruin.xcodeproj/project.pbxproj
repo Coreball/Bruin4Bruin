@@ -14,6 +14,10 @@
 		3C5B3CE420966C2B001B22EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */; };
 		3C5B3CEF20966C2B001B22EF /* Bruin4BruinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CEE20966C2B001B22EF /* Bruin4BruinTests.swift */; };
 		3C5B3CFA20966C2B001B22EF /* Bruin4BruinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */; };
+		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
+		5306E9E6FFEDB093E794795C /* Pods_Bruin4BruinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */; };
+		670FEBADC02CCA2723D3E76D /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */; };
+		8EB63741D3A7C262B9B0349C /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.release.xcconfig"; sourceTree = "<group>"; };
+		0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.release.xcconfig"; sourceTree = "<group>"; };
 		3C5B3CD620966C2B001B22EF /* Bruin4Bruin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bruin4Bruin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5B3CD920966C2B001B22EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C5B3CDB20966C2B001B22EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,10 @@
 		3C5B3CF520966C2B001B22EF /* Bruin4BruinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bruin4BruinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bruin4BruinUITests.swift; sourceTree = "<group>"; };
 		3C5B3CFB20966C2B001B22EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
+		8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				670FEBADC02CCA2723D3E76D /* Pods_Bruin4Bruin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB63741D3A7C262B9B0349C /* Pods_Bruin4BruinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5306E9E6FFEDB093E794795C /* Pods_Bruin4BruinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				3C5B3CED20966C2B001B22EF /* Bruin4BruinTests */,
 				3C5B3CF820966C2B001B22EF /* Bruin4BruinUITests */,
 				3C5B3CD720966C2B001B22EF /* Products */,
+				90E6AF6750120E71FA1BFDAB /* Pods */,
+				8574465DB56A52BDD0593A6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +116,7 @@
 		3C5B3CD820966C2B001B22EF /* Bruin4Bruin */ = {
 			isa = PBXGroup;
 			children = (
+				3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */,
 				3C5B3CD920966C2B001B22EF /* AppDelegate.swift */,
 				3C5B3CDB20966C2B001B22EF /* ViewController.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
@@ -125,6 +145,29 @@
 			path = Bruin4BruinUITests;
 			sourceTree = "<group>";
 		};
+		8574465DB56A52BDD0593A6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */,
+				046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */,
+				16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90E6AF6750120E71FA1BFDAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */,
+				30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */,
+				8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */,
+				00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */,
+				99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */,
+				0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3CFE20966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4Bruin" */;
 			buildPhases = (
+				A13EA03CB27A90481400E9A9 /* [CP] Check Pods Manifest.lock */,
 				3C5B3CD220966C2B001B22EF /* Sources */,
 				3C5B3CD320966C2B001B22EF /* Frameworks */,
 				3C5B3CD420966C2B001B22EF /* Resources */,
+				F84CC5EB09774963C9DF1D69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3D0120966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4BruinTests" */;
 			buildPhases = (
+				C30E68F79F79F7FB9020D6F6 /* [CP] Check Pods Manifest.lock */,
 				3C5B3CE620966C2B001B22EF /* Sources */,
 				3C5B3CE720966C2B001B22EF /* Frameworks */,
 				3C5B3CE820966C2B001B22EF /* Resources */,
@@ -167,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3D0420966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4BruinUITests" */;
 			buildPhases = (
+				32C1C0487053B5F546BB7AAE /* [CP] Check Pods Manifest.lock */,
 				3C5B3CF120966C2B001B22EF /* Sources */,
 				3C5B3CF220966C2B001B22EF /* Frameworks */,
 				3C5B3CF320966C2B001B22EF /* Resources */,
@@ -233,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C5B3CE420966C2B001B22EF /* LaunchScreen.storyboard in Resources */,
+				3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */,
 				3C5B3CE120966C2B001B22EF /* Assets.xcassets in Resources */,
 				3C5B3CDF20966C2B001B22EF /* Main.storyboard in Resources */,
 			);
@@ -253,6 +301,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32C1C0487053B5F546BB7AAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bruin4BruinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A13EA03CB27A90481400E9A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bruin4Bruin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C30E68F79F79F7FB9020D6F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bruin4BruinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F84CC5EB09774963C9DF1D69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C5B3CD220966C2B001B22EF /* Sources */ = {
@@ -424,6 +549,7 @@
 		};
 		3C5B3CFF20966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +564,7 @@
 		};
 		3C5B3D0020966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +579,7 @@
 		};
 		3C5B3D0220966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +596,7 @@
 		};
 		3C5B3D0320966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +613,7 @@
 		};
 		3C5B3D0520966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +629,7 @@
 		};
 		3C5B3D0620966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
