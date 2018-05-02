@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {  // View will appear also covers returning from another screen
+        self.navigationController?.navigationBar.isHidden = true  // Hide the navbar
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.navigationController?.navigationBar.isHidden = false  // Show the navbar again
+    }
 
 }
 
