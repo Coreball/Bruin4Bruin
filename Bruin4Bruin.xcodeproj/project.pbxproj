@@ -15,6 +15,8 @@
 		3C5B3CEF20966C2B001B22EF /* Bruin4BruinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CEE20966C2B001B22EF /* Bruin4BruinTests.swift */; };
 		3C5B3CFA20966C2B001B22EF /* Bruin4BruinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */; };
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
+		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
+		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
 		5306E9E6FFEDB093E794795C /* Pods_Bruin4BruinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */; };
 		670FEBADC02CCA2723D3E76D /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */; };
 		8EB63741D3A7C262B9B0349C /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */; };
@@ -58,6 +60,8 @@
 		3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bruin4BruinUITests.swift; sourceTree = "<group>"; };
 		3C5B3CFB20966C2B001B22EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */,
 				3C5B3CD920966C2B001B22EF /* AppDelegate.swift */,
 				3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */,
+				3FE092B3209B981100567B33 /* EditProfileViewController.swift */,
+				3FE092B5209B982400567B33 /* EditAccountViewController.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
 				3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */,
@@ -384,8 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
+				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
