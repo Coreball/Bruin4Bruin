@@ -4,10 +4,12 @@
 target 'Bruin4Bruin' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Firebase/Core'
 
   # Pods for Bruin4Bruin
-
+  pod 'FirebaseUI'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  
   target 'Bruin4BruinTests' do
     inherit! :search_paths
     # Pods for testing
