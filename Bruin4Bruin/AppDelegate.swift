@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self // TODO fix???
         return true
     }
 
