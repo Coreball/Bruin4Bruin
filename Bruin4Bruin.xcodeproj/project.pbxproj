@@ -17,9 +17,9 @@
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
 		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
-		5306E9E6FFEDB093E794795C /* Pods_Bruin4BruinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */; };
-		670FEBADC02CCA2723D3E76D /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */; };
-		8EB63741D3A7C262B9B0349C /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */; };
+		85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */; };
+		A9B91A886BFD12ACA9222DC8 /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */; };
+		EC64A76FE8E22D47816069A9 /* Pods_Bruin4BruinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C79D205156CEE7C3B2BC1D /* Pods_Bruin4BruinUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,12 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.release.xcconfig"; sourceTree = "<group>"; };
-		0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.release.xcconfig"; sourceTree = "<group>"; };
-		046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.release.xcconfig"; sourceTree = "<group>"; };
+		00C79D205156CEE7C3B2BC1D /* Pods_Bruin4BruinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20BBB77C61C961D1B33E927D /* Pods-Bruin4Bruin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.release.xcconfig"; sourceTree = "<group>"; };
 		3C5B3CD620966C2B001B22EF /* Bruin4Bruin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bruin4Bruin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5B3CD920966C2B001B22EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +59,12 @@
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
-		865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
-		8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.debug.xcconfig"; sourceTree = "<group>"; };
-		99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB43F84872D4CD0770BF9FE /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
+		8CBDE67D534375A966694E7D /* Pods-Bruin4BruinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C91CF373C4AE3629682BE7E6 /* Pods-Bruin4BruinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CB0B28F1BC493402406896BB /* Pods-Bruin4BruinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.release.xcconfig"; sourceTree = "<group>"; };
+		CD84FFC4761DFB5140ED8334 /* Pods-Bruin4BruinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				670FEBADC02CCA2723D3E76D /* Pods_Bruin4Bruin.framework in Frameworks */,
+				A9B91A886BFD12ACA9222DC8 /* Pods_Bruin4Bruin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EB63741D3A7C262B9B0349C /* Pods_Bruin4BruinTests.framework in Frameworks */,
+				85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,13 +88,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5306E9E6FFEDB093E794795C /* Pods_Bruin4BruinUITests.framework in Frameworks */,
+				EC64A76FE8E22D47816069A9 /* Pods_Bruin4BruinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		174405C5FA2E576A55123805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */,
+				155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */,
+				00C79D205156CEE7C3B2BC1D /* Pods_Bruin4BruinUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3C5B3CCD20966C2B001B22EF = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +112,8 @@
 				3C5B3CED20966C2B001B22EF /* Bruin4BruinTests */,
 				3C5B3CF820966C2B001B22EF /* Bruin4BruinUITests */,
 				3C5B3CD720966C2B001B22EF /* Products */,
-				90E6AF6750120E71FA1BFDAB /* Pods */,
-				8574465DB56A52BDD0593A6C /* Frameworks */,
+				6FBE705EB83392B62FE54F70 /* Pods */,
+				174405C5FA2E576A55123805 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,25 +161,15 @@
 			path = Bruin4BruinUITests;
 			sourceTree = "<group>";
 		};
-		8574465DB56A52BDD0593A6C /* Frameworks */ = {
+		6FBE705EB83392B62FE54F70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2F926D3ECCD476294D6B40AC /* Pods_Bruin4Bruin.framework */,
-				046D0382C71EB3BA7931EFE9 /* Pods_Bruin4BruinTests.framework */,
-				16A979DE58158F01EA092C44 /* Pods_Bruin4BruinUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		90E6AF6750120E71FA1BFDAB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */,
-				30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */,
-				8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */,
-				00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */,
-				99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */,
-				0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */,
+				8CB43F84872D4CD0770BF9FE /* Pods-Bruin4Bruin.debug.xcconfig */,
+				20BBB77C61C961D1B33E927D /* Pods-Bruin4Bruin.release.xcconfig */,
+				CD84FFC4761DFB5140ED8334 /* Pods-Bruin4BruinTests.debug.xcconfig */,
+				CB0B28F1BC493402406896BB /* Pods-Bruin4BruinTests.release.xcconfig */,
+				8CBDE67D534375A966694E7D /* Pods-Bruin4BruinUITests.debug.xcconfig */,
+				C91CF373C4AE3629682BE7E6 /* Pods-Bruin4BruinUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -181,12 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3CFE20966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4Bruin" */;
 			buildPhases = (
-				A13EA03CB27A90481400E9A9 /* [CP] Check Pods Manifest.lock */,
+				DB718EE1FEAB628896C9E9FE /* [CP] Check Pods Manifest.lock */,
 				3C5B3CD220966C2B001B22EF /* Sources */,
 				3C5B3CD320966C2B001B22EF /* Frameworks */,
 				3C5B3CD420966C2B001B22EF /* Resources */,
-				F84CC5EB09774963C9DF1D69 /* [CP] Embed Pods Frameworks */,
-				A986983F5452DA9195F84F18 /* [CP] Copy Pods Resources */,
+				09D498D30D457B572FADC68E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3D0120966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4BruinTests" */;
 			buildPhases = (
-				C30E68F79F79F7FB9020D6F6 /* [CP] Check Pods Manifest.lock */,
+				69F821A4C010A8D83FDE2340 /* [CP] Check Pods Manifest.lock */,
 				3C5B3CE620966C2B001B22EF /* Sources */,
 				3C5B3CE720966C2B001B22EF /* Frameworks */,
 				3C5B3CE820966C2B001B22EF /* Resources */,
@@ -220,7 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C5B3D0420966C2B001B22EF /* Build configuration list for PBXNativeTarget "Bruin4BruinUITests" */;
 			buildPhases = (
-				32C1C0487053B5F546BB7AAE /* [CP] Check Pods Manifest.lock */,
+				6EC2DE73E0262277A6B7167F /* [CP] Check Pods Manifest.lock */,
 				3C5B3CF120966C2B001B22EF /* Sources */,
 				3C5B3CF220966C2B001B22EF /* Frameworks */,
 				3C5B3CF320966C2B001B22EF /* Resources */,
@@ -310,75 +309,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32C1C0487053B5F546BB7AAE /* [CP] Check Pods Manifest.lock */ = {
+		09D498D30D457B572FADC68E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bruin4BruinUITests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A13EA03CB27A90481400E9A9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bruin4Bruin-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A986983F5452DA9195F84F18 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C30E68F79F79F7FB9020D6F6 /* [CP] Check Pods Manifest.lock */ = {
+		69F821A4C010A8D83FDE2340 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,54 +349,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F84CC5EB09774963C9DF1D69 /* [CP] Embed Pods Frameworks */ = {
+		6EC2DE73E0262277A6B7167F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"$(DERIVED_FILE_DIR)/Pods-Bruin4BruinUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB718EE1FEAB628896C9E9FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bruin4Bruin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -620,7 +559,7 @@
 		};
 		3C5B3CFF20966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 865CC626E72CA4630E40F997 /* Pods-Bruin4Bruin.debug.xcconfig */;
+			baseConfigurationReference = 8CB43F84872D4CD0770BF9FE /* Pods-Bruin4Bruin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -635,7 +574,7 @@
 		};
 		3C5B3D0020966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30E758605D76DCA3517EC96D /* Pods-Bruin4Bruin.release.xcconfig */;
+			baseConfigurationReference = 20BBB77C61C961D1B33E927D /* Pods-Bruin4Bruin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,7 +589,7 @@
 		};
 		3C5B3D0220966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D4D201FD39A2B0676C0C7F7 /* Pods-Bruin4BruinTests.debug.xcconfig */;
+			baseConfigurationReference = CD84FFC4761DFB5140ED8334 /* Pods-Bruin4BruinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -667,7 +606,7 @@
 		};
 		3C5B3D0320966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00CCC0D15FC7867C6F572CCD /* Pods-Bruin4BruinTests.release.xcconfig */;
+			baseConfigurationReference = CB0B28F1BC493402406896BB /* Pods-Bruin4BruinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -684,7 +623,7 @@
 		};
 		3C5B3D0520966C2B001B22EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99740E8A8BD9934343256918 /* Pods-Bruin4BruinUITests.debug.xcconfig */;
+			baseConfigurationReference = 8CBDE67D534375A966694E7D /* Pods-Bruin4BruinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -700,7 +639,7 @@
 		};
 		3C5B3D0620966C2B001B22EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0444187C74DEEBBF077D79C0 /* Pods-Bruin4BruinUITests.release.xcconfig */;
+			baseConfigurationReference = C91CF373C4AE3629682BE7E6 /* Pods-Bruin4BruinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

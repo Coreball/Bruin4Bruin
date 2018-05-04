@@ -6,7 +6,6 @@ target 'Bruin4Bruin' do
   use_frameworks!
 
   # Pods for Bruin4Bruin
-  pod 'FirebaseUI'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   
