@@ -28,7 +28,7 @@ class EditProfileViewController: UIViewController {
     // MARK: - Private Methods
     private func setupTags(){
         let button = UIButton()
-        button.setTitle(<#T##title: String?##String?#>, for: .normal)
+//        button.setTitle(<#T##title: String?##String?#>, for: .normal)
         
     }
 

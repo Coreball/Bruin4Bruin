@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40C980209D584400BC003B /* MessagingViewController.swift */; };
 		3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CD920966C2B001B22EF /* AppDelegate.swift */; };
 		3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */; };
 		3C5B3CDF20966C2B001B22EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3CDD20966C2B001B22EF /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		00C79D205156CEE7C3B2BC1D /* Pods_Bruin4BruinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4BruinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BBB77C61C961D1B33E927D /* Pods-Bruin4Bruin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.release.xcconfig"; sourceTree = "<group>"; };
+		3C40C980209D584400BC003B /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		3C5B3CD620966C2B001B22EF /* Bruin4Bruin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bruin4Bruin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5B3CD920966C2B001B22EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */,
 				3C5B3CD920966C2B001B22EF /* AppDelegate.swift */,
 				3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */,
+				3C40C980209D584400BC003B /* MessagingViewController.swift */,
 				3FE092B3209B981100567B33 /* EditProfileViewController.swift */,
 				3FE092B5209B982400567B33 /* EditAccountViewController.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
@@ -395,6 +398,7 @@
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
+				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
 				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
