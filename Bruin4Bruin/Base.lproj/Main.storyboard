@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FnH-7T-2nn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FnH-7T-2nn">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -283,9 +283,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4XE-fb-cgX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="qjz-Vy-gkf"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="qjz-Vy-gkf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="EbV-Lx-U90">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Wt7-oV-xk6" id="Wm0-9L-pKO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="saveButton" destination="EbV-Lx-U90" id="7zV-pZ-9qS"/>
                         <outlet property="scrollInside" destination="T1y-hO-0xr" id="cWe-ZR-B5F"/>
                     </connections>
                 </viewController>
