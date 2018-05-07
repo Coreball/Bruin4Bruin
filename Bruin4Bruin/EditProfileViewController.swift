@@ -24,13 +24,6 @@ class EditProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Private Methods
-    private func setupTags(){
-        let button = UIButton()
-//        button.setTitle(<#T##title: String?##String?#>, for: .normal)
-        
-    }
 
     /*
     // MARK: - Navigation
