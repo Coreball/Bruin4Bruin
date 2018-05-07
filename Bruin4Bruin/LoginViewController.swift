@@ -37,6 +37,9 @@ class LoginViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.navigationController?.navigationBar.isHidden = false  // Show the navbar again
+        if let editAccountVC = segue.destination as? EditAccountViewController {
+            editAccountVC.isCreatingAccount = true
+        }
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {

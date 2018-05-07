@@ -11,6 +11,8 @@ import UIKit
 class EditProfileViewController: UIViewController {
 
     @IBOutlet weak var scrollInside: UIView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var isCreatingAccount = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +21,28 @@ class EditProfileViewController: UIViewController {
 //        scrollInside.frame = CGRect(x: 0, y: 0, self.view.safeAreaLayoutGuide.widthAnchor  )
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if isCreatingAccount {
+            saveButton.title = "Finish"
+        } else {
+            saveButton.title = "Save"
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        if isCreatingAccount {
+            // make new account and go to messaging
+        } else {
+            // save the stuff and return to settings
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

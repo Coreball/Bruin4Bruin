@@ -275,9 +275,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4XE-fb-cgX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="qjz-Vy-gkf"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="qjz-Vy-gkf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="EbV-Lx-U90">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Wt7-oV-xk6" id="Wm0-9L-pKO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="saveButton" destination="EbV-Lx-U90" id="7zV-pZ-9qS"/>
                         <outlet property="scrollInside" destination="T1y-hO-0xr" id="cWe-ZR-B5F"/>
                     </connections>
                 </viewController>
