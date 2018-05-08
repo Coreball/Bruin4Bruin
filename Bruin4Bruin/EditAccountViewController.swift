@@ -16,11 +16,15 @@ class EditAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        for textField in textFields {
+            textField.layer.borderColor = UIColor.red.cgColor  // Can't do this in Storyboard
+            textField.layer.borderWidth = 0  // Don't show the border
+        }
         if isCreatingAccount {
             saveButton.title = "Next"
         } else {
@@ -36,10 +40,51 @@ class EditAccountViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
-            performSegue(withIdentifier: "EditAccountToEditProfile", sender: nil)
+            if validateTextFields() {
+                performSegue(withIdentifier: "EditAccountToEditProfile", sender: nil)
+            }
         } else {
             // save and return to settings
         }
+    }
+    
+    func validateTextFields() -> Bool {
+        
+        var isValid = true
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        if !emailTest.evaluate(with: textFields[0].text) {  // Test if email is valid
+            textFields[0].layer.borderWidth = 0.5
+            isValid = false
+        } else {
+            textFields[0].layer.borderWidth = 0
+        }
+        
+        if textFields[1].text != textFields[2].text || textFields[1].text!.isEmpty {  // Test if passwords do not match or are empty
+            textFields[1].layer.borderWidth = 0.5
+            textFields[2].layer.borderWidth = 0.5
+            isValid = false
+        } else {
+            textFields[1].layer.borderWidth = 0
+            textFields[2].layer.borderWidth = 0
+        }
+        
+        if textFields[3].text!.isEmpty {  // Test if First Name is blank
+            textFields[3].layer.borderWidth = 0.5
+            isValid = false
+        } else {
+            textFields[3].layer.borderWidth = 0
+        }
+        
+        if textFields[4].text!.isEmpty {  // Test if Last Name is blank
+            textFields[4].layer.borderWidth = 0.5
+            isValid = false
+        } else {
+            textFields[4].layer.borderWidth = 0
+        }
+        
+        return isValid
     }
     
     // MARK: - Navigation

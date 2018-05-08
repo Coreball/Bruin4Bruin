@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {  // View will appear also covers returning from another screen
         self.navigationController?.navigationBar.isHidden = true  // Hide the navbar
+        errorLabel.isHidden = true  // Hide the error until needed
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +55,8 @@ class LoginViewController: UIViewController {
                     self.performSegue(withIdentifier: "LoginToMessaging", sender: nil)
                 } else {
                     print(error!.localizedDescription)
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = error!.localizedDescription  // If have time write some better error messages
                 }
             }
         }
