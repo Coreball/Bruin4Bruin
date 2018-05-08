@@ -20,7 +20,7 @@
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
 		85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */; };
 		A9B91A886BFD12ACA9222DC8 /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */; };
-		E84797E720A0E1260090CA4D /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84797E620A0E1260090CA4D /* TagViewController.swift */; };
+		E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84797E620A0E1260090CA4D /* TagStackView.swift */; };
 		EC64A76FE8E22D47816069A9 /* Pods_Bruin4BruinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C79D205156CEE7C3B2BC1D /* Pods_Bruin4BruinUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +68,7 @@
 		C91CF373C4AE3629682BE7E6 /* Pods-Bruin4BruinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CB0B28F1BC493402406896BB /* Pods-Bruin4BruinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD84FFC4761DFB5140ED8334 /* Pods-Bruin4BruinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinTests/Pods-Bruin4BruinTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E84797E620A0E1260090CA4D /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		E84797E620A0E1260090CA4D /* TagStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 				3C40C980209D584400BC003B /* MessagingViewController.swift */,
 				3FE092B5209B982400567B33 /* EditAccountViewController.swift */,
 				3FE092B3209B981100567B33 /* EditProfileViewController.swift */,
-				E84797E620A0E1260090CA4D /* TagViewController.swift */,
+				E84797E620A0E1260090CA4D /* TagStackView.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
 				3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */,
@@ -401,7 +401,7 @@
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
-				E84797E720A0E1260090CA4D /* TagViewController.swift in Sources */,
+				E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */,
 				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
 				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);
