@@ -8,6 +8,8 @@ target 'Bruin4Bruin' do
   # Pods for Bruin4Bruin
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   
   target 'Bruin4BruinTests' do
     inherit! :search_paths
