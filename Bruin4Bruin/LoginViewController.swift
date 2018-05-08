@@ -50,11 +50,17 @@ class LoginViewController: UIViewController {
                     print("\(type(of: self)) successfully logged in")
                     print("User ID: \(user.uid)")
                     print("Email: \(user.email!)")
-                    self.performSegue(withIdentifier: "LoginToMessaging", sender: sender)
+                    self.performSegue(withIdentifier: "LoginToMessaging", sender: nil)
+                } else {
+                    print(error!.localizedDescription)
                 }
             }
         }
     }
 
+    @IBAction func createAccountPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "LoginToEditAccount", sender: nil)
+    }
+    
 }
 

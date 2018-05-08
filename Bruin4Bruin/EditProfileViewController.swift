@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EditProfileViewController: UIViewController {
 
     @IBOutlet weak var scrollInside: UIView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    var textFields = [UITextField]()
     var isCreatingAccount = false
     
     override func viewDidLoad() {
@@ -37,7 +39,16 @@ class EditProfileViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
-            // make new account and go to messaging
+            Auth.auth().createUser(withEmail: textFields[0].text!, password: textFields[1].text!) { (user, error) in
+                if let user = user {
+                    print("\(type(of: self)) successfully created new user")
+                    print("User ID: \(user.uid)")
+                    print("Email: \(user.email!)")
+                    self.performSegue(withIdentifier: "EditProfileToMessaging", sender: nil)
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
         } else {
             // save the stuff and return to settings
         }

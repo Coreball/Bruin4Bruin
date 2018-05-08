@@ -10,6 +10,8 @@ import UIKit
 
 class EditAccountViewController: UIViewController {
     
+    @IBOutlet var textFields: [UITextField]!  // Email, Password, Confirm Password, First Name, Last Name in that order
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var isCreatingAccount = false
 
     override func viewDidLoad() {
@@ -20,9 +22,9 @@ class EditAccountViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if isCreatingAccount {
-            // set bar button to be "Next"
+            saveButton.title = "Next"
         } else {
-            // set bar button to "Save"
+            saveButton.title = "Save"
         }
     }
 
@@ -32,6 +34,13 @@ class EditAccountViewController: UIViewController {
     }
     
 
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        if isCreatingAccount {
+            performSegue(withIdentifier: "EditAccountToEditProfile", sender: nil)
+        } else {
+            // save and return to settings
+        }
+    }
     
     // MARK: - Navigation
 
@@ -41,6 +50,7 @@ class EditAccountViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if let editProfileVC = segue.destination as? EditProfileViewController {  // If this is creating account make last button "Finish"
             editProfileVC.isCreatingAccount = true
+            editProfileVC.textFields = textFields  // Pass on the user info we just got
         }
     }
     

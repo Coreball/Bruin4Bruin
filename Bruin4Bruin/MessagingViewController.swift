@@ -31,6 +31,10 @@ class MessagingViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FnH-7T-2nn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FnH-7T-2nn">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
-                                            <segue destination="HS0-1T-seu" kind="show" id="fGr-Sk-N6C"/>
+                                            <action selector="createAccountPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mJG-bg-5ge"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUN-Ox-b18">
@@ -92,6 +92,7 @@
                         <outlet property="passwordTextField" destination="xwW-ID-5Az" id="aaY-Ha-p6g"/>
                         <outlet property="usernameTextField" destination="SlX-Xh-0nI" id="XXM-FS-RYW"/>
                         <segue destination="GKb-a7-sNk" kind="show" identifier="LoginToMessaging" id="Uyj-mA-cvY"/>
+                        <segue destination="HS0-1T-seu" kind="show" identifier="LoginToEditAccount" id="9VR-w3-oyN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,16 +124,16 @@
             </objects>
             <point key="canvasLocation" x="1980" y="-91.901408450704224"/>
         </scene>
-        <!--Create Account-->
+        <!--Edit Account-->
         <scene sceneID="Fw6-ih-Agw">
             <objects>
-                <viewController id="HS0-1T-seu" customClass="EditAccountViewController" customModule="Bruin4Bruin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HS0-1T-seu" userLabel="Edit Account" customClass="EditAccountViewController" customModule="Bruin4Bruin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ePQ-e3-rGc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-f6-6dm">
-                                <rect key="frame" x="60" y="116" width="200" height="400"/>
+                                <rect key="frame" x="60" y="161" width="200" height="310"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-Jl-dFS">
                                         <rect key="frame" x="50" y="0.0" width="100" height="100"/>
@@ -143,13 +144,13 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="95I-Ib-T3x">
-                                        <rect key="frame" x="0.0" y="120" width="200" height="230"/>
+                                        <rect key="frame" x="0.0" y="120" width="200" height="190"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIN-4V-zPr">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adk-Fw-Msk">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-2Z-Ywg">
                                                 <rect key="frame" x="0.0" y="40" width="200" height="30"/>
@@ -175,24 +176,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="family-name"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adk-Fw-Msk">
-                                                <rect key="frame" x="0.0" y="200" width="200" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
-                                            </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="ngK-Mz-H0J"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pk6-TO-NTz">
-                                        <rect key="frame" x="77" y="370" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="Wt7-oV-xk6" kind="show" id="s1a-HD-gxr"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -203,9 +191,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YUt-2d-E2s"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Account" id="wVK-22-r43">
+                    <navigationItem key="navigationItem" title="Edit Account" id="wVK-22-r43">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mab-bT-cfP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="m0d-Yq-frQ">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="HS0-1T-seu" id="sZs-4d-koj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="m0d-Yq-frQ" id="Vcc-WI-QaM"/>
+                        <outletCollection property="textFields" destination="adk-Fw-Msk" collectionClass="NSMutableArray" id="XaY-wi-bRd"/>
+                        <outletCollection property="textFields" destination="UX7-2Z-Ywg" collectionClass="NSMutableArray" id="kEx-IL-uIb"/>
+                        <outletCollection property="textFields" destination="d5T-US-SN0" collectionClass="NSMutableArray" id="dMD-Z9-Yz3"/>
+                        <outletCollection property="textFields" destination="lWZ-2g-kqZ" collectionClass="NSMutableArray" id="bKr-Ag-FPh"/>
+                        <outletCollection property="textFields" destination="nGD-h2-LlG" collectionClass="NSMutableArray" id="oBl-Of-Ll6"/>
+                        <segue destination="Wt7-oV-xk6" kind="show" identifier="EditAccountToEditProfile" id="hIC-5Q-pJy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhd-7w-qo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,6 +288,7 @@
                     <connections>
                         <outlet property="saveButton" destination="EbV-Lx-U90" id="7zV-pZ-9qS"/>
                         <outlet property="scrollInside" destination="T1y-hO-0xr" id="cWe-ZR-B5F"/>
+                        <segue destination="GKb-a7-sNk" kind="show" identifier="EditProfileToMessaging" id="kfy-C1-sgE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnC-3S-9Ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,4 +317,7 @@
     <resources>
         <image name="Bruin4Bruin_Placeholder" width="250" height="250"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kfy-C1-sgE"/>
+    </inferredMetricsTieBreakers>
 </document>
