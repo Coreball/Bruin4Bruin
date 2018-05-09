@@ -1,18 +1,36 @@
 //
 //  SettingsOptionTableViewController.swift
-//  Bruin4Bruin
+//  
 //
-//  Created by Student on 5/8/18.
-//  Copyright © 2018 Changyuan Lin. All rights reserved.
+//  Created by Student on 5/9/18.
 //
 
 import UIKit
 
 class SettingsOptionTableViewController: UITableViewController {
+
+    var options = [Options]()
+    
+    private func loadOptions() {
         
+        guard let option1 = Options(name: "Option 1") else {
+            fatalError("Unable to instantiate option1")
+        }
+        
+        guard let option2 = Options(name: "Option 2") else {
+            fatalError("Unable to instantiate option2")
+        }
+        
+        guard let option3 = Options(name: "Option 3") else {
+            fatalError("Unable to instantiate option3")
+        }
+        
+        options += [option1, option2, option3]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadOptions()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,24 +46,28 @@ class SettingsOptionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return options.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "SettingsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SettingsTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
 
-        // Configure the cell...
+        let option = options[indexPath.row]
+        cell.labelName.text = option.name
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +113,5 @@ class SettingsOptionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
 }
