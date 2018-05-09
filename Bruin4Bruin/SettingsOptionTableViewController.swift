@@ -13,19 +13,27 @@ class SettingsOptionTableViewController: UITableViewController {
     
     private func loadOptions() {
         
-        guard let option1 = Options(name: "Option 1") else {
-            fatalError("Unable to instantiate option1")
+        guard let messaging = Options(name: "Messaging") else {
+            fatalError("Unable to instantiate messaging")
         }
         
-        guard let option2 = Options(name: "Option 2") else {
-            fatalError("Unable to instantiate option2")
+        guard let editProfile = Options(name: "Edit Profile") else {
+            fatalError("Unable to instantiate editProfile")
         }
         
-        guard let option3 = Options(name: "Option 3") else {
-            fatalError("Unable to instantiate option3")
+        guard let savedPeople = Options(name: "Saved People") else {
+            fatalError("Unable to instantiate savedPeople")
         }
         
-        options += [option1, option2, option3]
+        guard let newConnection = Options(name: "New Connection") else {
+            fatalError("Unable to instantiate newConnection")
+        }
+        
+        guard let logout = Options(name: "Logout") else {
+            fatalError("Unable to instantiate logout")
+        }
+        
+        options += [messaging, editProfile, savedPeople, newConnection, logout]
     }
     
     override func viewDidLoad() {
