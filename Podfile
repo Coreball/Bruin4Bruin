@@ -8,7 +8,7 @@ target 'Bruin4Bruin' do
   # Pods for Bruin4Bruin
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   
   target 'Bruin4BruinTests' do
