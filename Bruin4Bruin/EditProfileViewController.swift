@@ -14,6 +14,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var scrollInside: UIView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var textFields = [UITextField]()
+    var profilePic: UIImage = #imageLiteral(resourceName: "defaultPhoto")
     let db = Firestore.firestore()
     var isCreatingAccount = false
     
@@ -57,6 +58,8 @@ class EditProfileViewController: UIViewController {
                             print("Successfully wrote to \(user.email!) document")
                         }
                     }
+                    let profilePicRef = Storage.storage().reference().child("users/\(user.uid)/profilePicture.png")
+                    profilePicRef.putData(UIImagePNGRepresentation(self.profilePic)!)  // Upload the profile picture
                     self.performSegue(withIdentifier: "EditProfileToMessaging", sender: nil)
                 } else {
                     print(error!.localizedDescription)

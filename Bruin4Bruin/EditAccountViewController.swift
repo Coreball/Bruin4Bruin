@@ -131,6 +131,7 @@ UINavigationControllerDelegate{
         if let editProfileVC = segue.destination as? EditProfileViewController {  // If this is creating account make last button "Finish"
             editProfileVC.isCreatingAccount = true
             editProfileVC.textFields = textFields  // Pass on the user info we just got
+            editProfileVC.profilePic = imageView.image!  // Pass on whatever image is currently selected
         }
     }
     
