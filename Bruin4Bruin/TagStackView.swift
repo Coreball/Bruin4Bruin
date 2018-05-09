@@ -8,19 +8,21 @@
 
 import UIKit
 
-@IBDesignable class TagViewController: UIStackView {
+@IBDesignable class TagStackView: UIStackView {
 
     // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUpTags(tags: ["test", "two"])
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
+        setUpTags(tags: ["test", "two"])
     }
     
-    public func setupTags(tags: [String]) {
+    public func setUpTags(tags: [String]) {
         for String in tags {
             setUpTag(tag: String)
         }
@@ -28,9 +30,11 @@ import UIKit
     
     private func setUpTag(tag: String) {
         let button = UIButton()
-        
+        button.setTitle(tag, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
         addArrangedSubview(button)
-        //        button.setTitle(<#T##title: String?##String?#>, for: .normal)
     }
     
     /*

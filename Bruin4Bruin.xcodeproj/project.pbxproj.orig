@@ -424,9 +424,14 @@
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				3FE9A88420A37BB800BEBCCE /* SettingsOptionTableViewController.swift in Sources */,
 				3FE9A88620A37E8000BEBCCE /* Options.swift in Sources */,
+				E84797E720A0E1260090CA4D /* TagViewController.swift in Sources */,
+=======
 				E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */,
+				3F5034AE20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift in Sources */,
+>>>>>>> bbcc8b4458f3106564a0ade54e4af8927b1d7a10
 				3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */,
 				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
 				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,

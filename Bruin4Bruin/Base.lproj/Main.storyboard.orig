@@ -6,7 +6,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+<<<<<<< HEAD
+=======
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+>>>>>>> bbcc8b4458f3106564a0ade54e4af8927b1d7a10
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>

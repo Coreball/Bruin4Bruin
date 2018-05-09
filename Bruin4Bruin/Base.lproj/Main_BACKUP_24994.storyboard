@@ -6,7 +6,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+<<<<<<< HEAD
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+=======
+>>>>>>> 662931d45cb41a9ecd3bfa11ab3d0261fca3c389
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -133,10 +136,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6P6-O5-QnR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Other Person's Name" id="mNs-S1-9ne">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="tGl-XE-4Qg"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="8Al-PP-N5v"/>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUL-ES-hQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="1489" y="848"/>
         </scene>
-        <!--Settings Option Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Q2C-zi-D2g">
             <objects>
-                <tableViewController id="EmD-6X-20b" customClass="SettingsOptionTableViewController" customModule="Bruin4Bruin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="EmD-6X-20b" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fh9-iM-7Y8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,22 +412,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyw-tm-cgj">
-                                            <rect key="frame" x="16" y="11" width="254" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-u7-G8c">
-                                            <rect key="frame" x="285" y="5" width="30" height="33.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-u7-G8c">
+                                            <rect key="frame" x="278" y="5" width="26" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="&gt;"/>
                                         </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="7Pa-u7-G8c" secondAttribute="bottom" constant="5" id="6C5-Yy-odi"/>
-                                        <constraint firstItem="7Pa-u7-G8c" firstAttribute="top" secondItem="rdz-2M-cM0" secondAttribute="top" constant="5" id="HdX-jQ-9S9"/>
-                                        <constraint firstAttribute="trailing" secondItem="7Pa-u7-G8c" secondAttribute="trailing" constant="5" id="wvV-uY-GL0"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="labelName" destination="wyw-tm-cgj" id="hFh-Ki-spy"/>
@@ -466,9 +461,9 @@
     </scenes>
     <resources>
         <image name="Bruin4Bruin_Placeholder" width="250" height="250"/>
-        <image name="defaultPhoto" width="120" height="120"/>
+        <image name="defaultPhoto" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kfy-C1-sgE"/>
+        <segue reference="Uyj-mA-cvY"/>
     </inferredMetricsTieBreakers>
 </document>
