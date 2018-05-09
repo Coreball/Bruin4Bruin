@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class EditProfileViewController: UIViewController {
 
     @IBOutlet weak var scrollInside: UIView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var textFields = [UITextField]()
+    var profilePic: UIImage = #imageLiteral(resourceName: "defaultPhoto")
+    let db = Firestore.firestore()
     var isCreatingAccount = false
     
     override func viewDidLoad() {
@@ -44,6 +46,20 @@ class EditProfileViewController: UIViewController {
                     print("\(type(of: self)) successfully created new user")
                     print("User ID: \(user.uid)")
                     print("Email: \(user.email!)")
+                    self.db.collection("users").document(user.uid).setData([
+                        "first" : self.textFields[3].text!,
+                        "last" : self.textFields[4].text!,
+                        "joined" : Timestamp()
+                        // Submit more things like BIO, etc.
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Successfully wrote to \(user.email!) document")
+                        }
+                    }
+                    let profilePicRef = Storage.storage().reference().child("users/\(user.uid)/profilePicture.png")
+                    profilePicRef.putData(UIImagePNGRepresentation(self.profilePic)!)  // Upload the profile picture
                     self.performSegue(withIdentifier: "EditProfileToMessaging", sender: nil)
                 } else {
                     print(error!.localizedDescription)
