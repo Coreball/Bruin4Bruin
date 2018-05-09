@@ -16,6 +16,9 @@
 		3C5B3CEF20966C2B001B22EF /* Bruin4BruinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CEE20966C2B001B22EF /* Bruin4BruinTests.swift */; };
 		3C5B3CFA20966C2B001B22EF /* Bruin4BruinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */; };
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
+		3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */; };
+		3F5034AE20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5034AC20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift */; };
+		3F5034AF20A2336B00C2F0A7 /* SettingsOptionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5034AD20A2336B00C2F0A7 /* SettingsOptionTableViewController.xib */; };
 		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
 		85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */; };
@@ -60,6 +63,9 @@
 		3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bruin4BruinUITests.swift; sourceTree = "<group>"; };
 		3C5B3CFB20966C2B001B22EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		3F5034AC20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionTableViewController.swift; sourceTree = "<group>"; };
+		3F5034AD20A2336B00C2F0A7 /* SettingsOptionTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsOptionTableViewController.xib; sourceTree = "<group>"; };
 		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +148,9 @@
 				3FE092B3209B981100567B33 /* EditProfileViewController.swift */,
 				E84797E620A0E1260090CA4D /* TagStackView.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
+				3F5034AC20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift */,
+				3F5034AD20A2336B00C2F0A7 /* SettingsOptionTableViewController.xib */,
+				3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
 				3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */,
 				3C5B3CE520966C2B001B22EF /* Info.plist */,
@@ -291,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5034AF20A2336B00C2F0A7 /* SettingsOptionTableViewController.xib in Resources */,
 				3C5B3CE420966C2B001B22EF /* LaunchScreen.storyboard in Resources */,
 				3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */,
 				3C5B3CE120966C2B001B22EF /* Assets.xcassets in Resources */,
@@ -324,12 +334,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +414,8 @@
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
 				E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */,
+				3F5034AE20A2336B00C2F0A7 /* SettingsOptionTableViewController.swift in Sources */,
+				3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */,
 				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
 				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);

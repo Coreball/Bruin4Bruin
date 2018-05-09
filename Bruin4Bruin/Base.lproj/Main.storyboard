@@ -77,6 +77,9 @@
                                         <rect key="frame" x="62.5" y="367" width="95" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password"/>
+                                        <connections>
+                                            <segue destination="EmD-6X-20b" kind="show" id="yO5-zA-6IS"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error hello hello hello test test tes test ets lsdjatlsj fasl;f jalfe laf;jsaklf lejalfkdsa  feaklfjdsa" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78a-1z-Ne6">
                                         <rect key="frame" x="0.0" y="404" width="220" height="43"/>
@@ -144,18 +147,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-f6-6dm">
-                                <rect key="frame" x="60" y="161" width="200" height="310"/>
+                                <rect key="frame" x="60" y="123.5" width="200" height="385"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-Jl-dFS">
-                                        <rect key="frame" x="50" y="0.0" width="100" height="100"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-Jl-dFS">
+                                        <rect key="frame" x="12.5" y="0.0" width="175" height="175"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="M4Q-cN-Mbt"/>
-                                            <constraint firstAttribute="height" constant="100" id="qeh-rc-4iR"/>
+                                            <constraint firstAttribute="width" constant="175" id="M4Q-cN-Mbt"/>
+                                            <constraint firstAttribute="height" constant="175" id="qeh-rc-4iR"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="nDt-dG-Jmv" appends="YES" id="6ws-tU-DMf"/>
+                                        </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="95I-Ib-T3x">
-                                        <rect key="frame" x="0.0" y="120" width="200" height="190"/>
+                                        <rect key="frame" x="0.0" y="195" width="200" height="190"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adk-Fw-Msk">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -241,6 +248,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="ciU-Jl-dFS" id="Zeu-FA-5Oq"/>
                         <outlet property="saveButton" destination="m0d-Yq-frQ" id="Vcc-WI-QaM"/>
                         <outletCollection property="textFields" destination="adk-Fw-Msk" collectionClass="NSMutableArray" id="XaY-wi-bRd"/>
                         <outletCollection property="textFields" destination="UX7-2Z-Ywg" collectionClass="NSMutableArray" id="kEx-IL-uIb"/>
@@ -251,6 +259,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhd-7w-qo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nDt-dG-Jmv">
+                    <connections>
+                        <action selector="accessImage:" destination="HS0-1T-seu" id="n3h-Xe-v8k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="485.625" y="848.23943661971828"/>
         </scene>
@@ -379,6 +392,51 @@
             </objects>
             <point key="canvasLocation" x="1489" y="848"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Q2C-zi-D2g">
+            <objects>
+                <tableViewController id="EmD-6X-20b" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fh9-iM-7Y8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" id="Dnh-qj-eni" customClass="SettingsTableViewCell" customModule="Bruin4Bruin" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dnh-qj-eni" id="rdz-2M-cM0">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyw-tm-cgj">
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-u7-G8c">
+                                            <rect key="frame" x="278" y="5" width="26" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="&gt;"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelName" destination="wyw-tm-cgj" id="hFh-Ki-spy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EmD-6X-20b" id="Ibo-V8-GjD"/>
+                            <outlet property="delegate" destination="EmD-6X-20b" id="sbk-Ef-Q9f"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-nI-JVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2356.875" y="711.97183098591552"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8gs-90-3v3">
             <objects>
@@ -400,8 +458,9 @@
     </scenes>
     <resources>
         <image name="Bruin4Bruin_Placeholder" width="250" height="250"/>
+        <image name="defaultPhoto" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kfy-C1-sgE"/>
+        <segue reference="Uyj-mA-cvY"/>
     </inferredMetricsTieBreakers>
 </document>
