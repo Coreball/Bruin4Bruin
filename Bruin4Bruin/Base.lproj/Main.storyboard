@@ -77,6 +77,9 @@
                                         <rect key="frame" x="62.5" y="367" width="95" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password"/>
+                                        <connections>
+                                            <segue destination="EmD-6X-20b" kind="show" id="dG4-4J-QRu"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error hello hello hello test test tes test ets lsdjatlsj fasl;f jalfe laf;jsaklf lejalfkdsa  feaklfjdsa" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78a-1z-Ne6">
                                         <rect key="frame" x="0.0" y="404" width="220" height="43"/>
@@ -266,7 +269,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="485.625" y="848.23943661971828"/>
+            <point key="canvasLocation" x="853" y="902"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="4fg-7h-kIG">
@@ -391,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnC-3S-9Ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="848"/>
+            <point key="canvasLocation" x="1802" y="901"/>
         </scene>
         <!--Settings Option Table View Controller-->
         <scene sceneID="Q2C-zi-D2g">
@@ -445,10 +448,13 @@
                             <outlet property="delegate" destination="EmD-6X-20b" id="sbk-Ef-Q9f"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="HS0-1T-seu" kind="show" identifier="settingsToEdit" id="quS-Pc-Mi5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-nI-JVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="1023"/>
+            <point key="canvasLocation" x="2814" y="554"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8gs-90-3v3">
@@ -474,6 +480,7 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="quS-Pc-Mi5"/>
         <segue reference="kfy-C1-sgE"/>
     </inferredMetricsTieBreakers>
 </document>

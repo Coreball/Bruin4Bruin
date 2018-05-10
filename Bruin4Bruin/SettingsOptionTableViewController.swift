@@ -61,6 +61,22 @@ class SettingsOptionTableViewController: UITableViewController {
         return options.count
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            
+        }else if indexPath.row == 1{
+            //Settings to Edit Screen
+            performSegue(withIdentifier: "settingsToEdit", sender: indexPath)
+        }else if indexPath.row == 2{
+            
+        }else if indexPath.row == 3{
+            
+        }else if indexPath.row == 4{
+            //Goes back to the root controller, but I think it does pop the controllers.
+            self.dismiss(animated: true, completion: {});
+            self.navigationController?.popViewController(animated: true);
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -69,12 +85,14 @@ class SettingsOptionTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SettingsTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
-
+        
         let option = options[indexPath.row]
         cell.labelName.text = option.name
-
+        
+        
         return cell
     }
+    
  
 
     /*
