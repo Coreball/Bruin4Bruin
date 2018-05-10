@@ -17,6 +17,7 @@
 		3C5B3CEF20966C2B001B22EF /* Bruin4BruinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CEE20966C2B001B22EF /* Bruin4BruinTests.swift */; };
 		3C5B3CFA20966C2B001B22EF /* Bruin4BruinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */; };
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
+		3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */; };
 		3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */; };
 		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
@@ -64,6 +65,7 @@
 		3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bruin4BruinUITests.swift; sourceTree = "<group>"; };
 		3C5B3CFB20966C2B001B22EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C066FD220A40ECA00742968 /* SettingsOptionTableViewController.swift */,
 				3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */,
+				3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
 				3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */,
 				3C5B3CE520966C2B001B22EF /* Info.plist */,
@@ -421,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */,
 				3C066FD320A40ECA00742968 /* SettingsOptionTableViewController.swift in Sources */,
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
