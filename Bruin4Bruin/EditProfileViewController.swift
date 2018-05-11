@@ -17,6 +17,7 @@ class EditProfileViewController: UIViewController {
     var profilePic: UIImage = #imageLiteral(resourceName: "defaultPhoto")
     let db = Firestore.firestore()
     var isCreatingAccount = false
+    var skipToMessaging = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class EditProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if isCreatingAccount {
             saveButton.title = "Finish"
+        } else if skipToMessaging{
+            performSegue(withIdentifier: "EditProfileToMessaging", sender: nil)
         } else {
             saveButton.title = "Save"
         }
@@ -72,18 +75,19 @@ class EditProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToEditProfile(segue: UIStoryboardSegue) {
-        /// unwind
-    }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        isCreatingAccount = false  // Reset
+        skipToMessaging = false
     }
-    */
+    
+    @IBAction func unwindToEditProfile(segue: UIStoryboardSegue) {
+        /// unwind
+    }
 
 }
