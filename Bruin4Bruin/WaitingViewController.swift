@@ -9,6 +9,8 @@
 import UIKit
 
 class WaitingViewController: UIViewController {
+    
+    var cameFromEditProfile = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +30,17 @@ class WaitingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        cameFromEditProfile = false
         if let editProfile = segue.destination as? EditProfileViewController {
             editProfile.skipToMessaging = true  // Unwind and then skip directly to messaging
         }
     }
     
     @IBAction func leavePressed(_ sender: UIButton) {
-        if (self.parent as? EditProfileViewController) != nil {
+        if cameFromEditProfile {
             performSegue(withIdentifier: "UnwindToEditProfileFromWaiting", sender: nil)
-        }
-        if (self.parent as? MessagingViewController) != nil {
-            performSegue(withIdentifier: "UnwindToMessagingFromWaiting", sender: <#T##Any?#>)
+        } else {
+            performSegue(withIdentifier: "UnwindToMessagingFromWaiting", sender: nil)
         }
     }
     

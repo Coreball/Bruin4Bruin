@@ -84,6 +84,9 @@ class EditProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
         isCreatingAccount = false  // Reset
         skipToMessaging = false
+        if let waiting = segue.destination as? WaitingViewController {
+            waiting.cameFromEditProfile = true
+        }
     }
     
     @IBAction func unwindToEditProfile(segue: UIStoryboardSegue) {
