@@ -41,33 +41,34 @@ class EditProfileViewController: UIViewController {
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
-//            Auth.auth().createUser(withEmail: textFields[0].text!, password: textFields[1].text!) { (user, error) in
-//                if let user = user {
-//                    print("\(type(of: self)) successfully created new user")
-//                    print("User ID: \(user.uid)")
-//                    print("Email: \(user.email!)")
-//                    self.db.collection("users").document(user.uid).setData([
-//                        "first" : self.textFields[3].text!,
-//                        "last" : self.textFields[4].text!,
-//                        "joined" : Timestamp()
-//                        // Submit more things like BIO, etc.
-//                    ]) { err in
-//                        if let err = err {
-//                            print("Error writing document: \(err)")
-//                        } else {
-//                            print("Successfully wrote to \(user.email!) document")
-//                        }
-//                    }
-//                    let profilePicRef = Storage.storage().reference().child("users/\(user.uid)/profilePicture.png")
-//                    profilePicRef.putData(UIImagePNGRepresentation(self.profilePic)!)  // Upload the profile picture
-//                    self.performSegue(withIdentifier: "EditProfileToMessaging", sender: nil)
-//                } else {
-//                    print(error!.localizedDescription)
-//                }
-//            }
-            performSegue(withIdentifier: "EditProfileToWaiting", sender: nil)
+            Auth.auth().createUser(withEmail: textFields[0].text!, password: textFields[1].text!) { (user, error) in
+                if let user = user {
+                    print("\(type(of: self)) successfully created new user")
+                    print("User ID: \(user.uid)")
+                    print("Email: \(user.email!)")
+                    self.db.collection("users").document(user.uid).setData([
+                        "first" : self.textFields[3].text!,
+                        "last" : self.textFields[4].text!,
+                        "joined" : Timestamp()
+                        // Submit more things like BIO, etc.
+                    ]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Successfully wrote to \(user.email!) document")
+                        }
+                    }
+                    let profilePicRef = Storage.storage().reference().child("users/\(user.uid)/profilePicture.png")
+                    profilePicRef.putData(UIImagePNGRepresentation(self.profilePic)!)  // Upload the profile picture
+                    self.performSegue(withIdentifier: "EditProfileToWaiting", sender: nil)
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
         } else {
             // save the stuff and return to settings
+            print("Pretending to save Edit Profile")
+            performSegue(withIdentifier: "UnwindToSettingsFromEditProfile", sender: nil)
         }
     }
     

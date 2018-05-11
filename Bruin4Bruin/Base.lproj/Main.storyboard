@@ -77,9 +77,6 @@
                                         <rect key="frame" x="62.5" y="367" width="95" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Forgot Password"/>
-                                        <connections>
-                                            <segue destination="EmD-6X-20b" kind="show" id="dG4-4J-QRu"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error hello hello hello test test tes test ets lsdjatlsj fasl;f jalfe laf;jsaklf lejalfkdsa  feaklfjdsa" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78a-1z-Ne6">
                                         <rect key="frame" x="0.0" y="404" width="220" height="43"/>
@@ -133,10 +130,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6P6-O5-QnR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Other Person's Name" id="mNs-S1-9ne">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="tGl-XE-4Qg"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="8Al-PP-N5v"/>
+                    <navigationItem key="navigationItem" title="Messaging" id="mNs-S1-9ne">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="tGl-XE-4Qg">
+                            <connections>
+                                <action selector="profilePressed:" destination="GKb-a7-sNk" id="mAO-cG-Eoc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="8Al-PP-N5v">
+                            <connections>
+                                <action selector="settingsPressed:" destination="GKb-a7-sNk" id="o2A-9Y-JKP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="EmD-6X-20b" kind="show" identifier="MessagingToSettings" id="cUF-fn-CzT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUL-ES-hQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +159,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-f6-6dm">
-                                <rect key="frame" x="60" y="123.5" width="200" height="385"/>
+                                <rect key="frame" x="60" y="101.5" width="200" height="385"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-Jl-dFS">
                                         <rect key="frame" x="12.5" y="0.0" width="175" height="175"/>
@@ -260,9 +268,11 @@
                         <outletCollection property="textFields" destination="lWZ-2g-kqZ" collectionClass="NSMutableArray" id="bKr-Ag-FPh"/>
                         <outletCollection property="textFields" destination="nGD-h2-LlG" collectionClass="NSMutableArray" id="oBl-Of-Ll6"/>
                         <segue destination="Wt7-oV-xk6" kind="show" identifier="EditAccountToEditProfile" id="hIC-5Q-pJy"/>
+                        <segue destination="eYf-Gq-4Da" kind="unwind" identifier="UnwindToSettingsFromEditAccount" unwindAction="unwindToSettingsWithSegue:" id="9Ez-wW-kYt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhd-7w-qo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eYf-Gq-4Da" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="nDt-dG-Jmv">
                     <connections>
                         <action selector="accessImage:" destination="HS0-1T-seu" id="n3h-Xe-v8k"/>
@@ -280,12 +290,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I4-tA-7mq">
-                                <rect key="frame" x="0.0" y="64" width="320" height="936"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="980"/>
                                 <subviews>
                                     <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T1y-hO-0xr">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f5N-AS-TbO">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f5N-AS-TbO">
                                                 <rect key="frame" x="20" y="20" width="280" height="472"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-hx-UPG">
@@ -309,38 +319,38 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M2s-K8-eOr" userLabel="Vertical Stack">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M2s-K8-eOr" userLabel="Vertical Stack">
                                                         <rect key="frame" x="0.0" y="211" width="120" height="60"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RH-yO-bTN" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5RH-yO-bTN" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Add-na-UA4">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Add-na-UA4">
                                                         <rect key="frame" x="0.0" y="281" width="51" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-XH-RVa" userLabel="Vertical Stack">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-XH-RVa" userLabel="Vertical Stack">
                                                         <rect key="frame" x="0.0" y="311.5" width="120" height="60"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KZ-nB-YfJ" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KZ-nB-YfJ" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-UB-ixF">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Electives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-UB-ixF">
                                                         <rect key="frame" x="0.0" y="381.5" width="68.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9ls-tc-Blc" userLabel="Vertical Stack">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9ls-tc-Blc" userLabel="Vertical Stack">
                                                         <rect key="frame" x="0.0" y="412" width="120" height="60"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMx-US-XDy" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMx-US-XDy" userLabel="Horizontal Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
                                                             </stackView>
                                                         </subviews>
@@ -391,9 +401,11 @@
                         <outlet property="scrollInside" destination="T1y-hO-0xr" id="cWe-ZR-B5F"/>
                         <segue destination="GKb-a7-sNk" kind="show" identifier="EditProfileToMessaging" id="kfy-C1-sgE"/>
                         <segue destination="hiO-oo-bLY" kind="presentation" identifier="EditProfileToWaiting" id="vh1-Ez-aRQ"/>
+                        <segue destination="TiL-Um-PCe" kind="unwind" identifier="UnwindToSettingsFromEditProfile" unwindAction="unwindToSettingsWithSegue:" id="hl3-v0-a5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnC-3S-9Ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TiL-Um-PCe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1802" y="901"/>
         </scene>
@@ -576,10 +588,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="eo6-do-ql0"/>
                     <connections>
-                        <segue destination="HS0-1T-seu" kind="show" identifier="settingsToEdit" id="quS-Pc-Mi5"/>
+                        <segue destination="HS0-1T-seu" kind="show" identifier="SettingsToEditAccount" id="quS-Pc-Mi5"/>
+                        <segue destination="Wt7-oV-xk6" kind="show" identifier="SettingsToEditProfile" id="82Z-v7-5nF"/>
+                        <segue destination="RgW-BC-TEn" kind="unwind" identifier="UnwindToLoginFromSettings" unwindAction="unwindToLoginWithSegue:" id="K6a-ds-EBp"/>
+                        <segue destination="hiO-oo-bLY" kind="presentation" identifier="SettingsToWaiting" id="aRT-6f-dda"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-nI-JVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RgW-BC-TEn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2814" y="554"/>
         </scene>
@@ -644,6 +660,8 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aRT-6f-dda"/>
+        <segue reference="82Z-v7-5nF"/>
         <segue reference="quS-Pc-Mi5"/>
         <segue reference="kfy-C1-sgE"/>
     </inferredMetricsTieBreakers>

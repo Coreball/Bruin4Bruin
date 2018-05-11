@@ -47,6 +47,8 @@ UINavigationControllerDelegate{
             }
         } else {
             // save and return to settings
+            print("Pretending to save Edit Account")
+            performSegue(withIdentifier: "UnwindToSettingsFromEditAccount", sender: nil)
         }
     }
     

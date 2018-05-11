@@ -36,15 +36,19 @@ class SettingsOptionTableViewController: UITableViewController {
                 print("Saved People")
             case 2:
                 print("Edit Profile")
+                performSegue(withIdentifier: "SettingsToEditProfile", sender: nil)
             case 3:
                 print("Edit Account")
+                performSegue(withIdentifier: "SettingsToEditAccount", sender: nil)
             default:
                 print("Unexpected row index in section 0")
             }
         case 1:
             print("New Connection")
+            performSegue(withIdentifier: "SettingsToWaiting", sender: nil)
         case 2:
             print("Logout")
+            performSegue(withIdentifier: "UnwindToLoginFromSettings", sender: nil)
         default:
             print("Unexpected section index in Settings")
         }
@@ -95,5 +99,9 @@ class SettingsOptionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToSettings(segue: UIStoryboardSegue) {
+        // Come back to settings
+    }
 
 }

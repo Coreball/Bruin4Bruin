@@ -68,5 +68,14 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "LoginToEditAccount", sender: nil)
     }
     
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        do {
+            try Auth.auth().signOut()
+            print("\(type(of: self)) successfully signed out user")
+        } catch {
+            print("\(type(of: self)) failed to sign out user!!")
+        }
+    }
+    
 }
 

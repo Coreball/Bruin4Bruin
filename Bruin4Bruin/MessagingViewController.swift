@@ -47,6 +47,14 @@ class MessagingViewController: UIViewController {
         print("User ID: \(uid)")
     }
     
+    @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "MessagingToSettings", sender: nil)
+    }
+    
+    @IBAction func profilePressed(_ sender: UIBarButtonItem) {
+        // View the other person's profile
+    }
+    
     /*
     // MARK: - Navigation
 
