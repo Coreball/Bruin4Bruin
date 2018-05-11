@@ -1,44 +1,17 @@
 //
 //  SettingsOptionTableViewController.swift
-//  
+//  Bruin4Bruin
 //
 //  Created by Student on 5/9/18.
+//  Copyright © 2018 Changyuan Lin. All rights reserved.
 //
 
 import UIKit
 
 class SettingsOptionTableViewController: UITableViewController {
-
-    var options = [Options]()
-    
-    private func loadOptions() {
-        
-        guard let messaging = Options(name: "Messaging") else {
-            fatalError("Unable to instantiate messaging")
-        }
-        
-        guard let editProfile = Options(name: "Edit Profile") else {
-            fatalError("Unable to instantiate editProfile")
-        }
-        
-        guard let savedPeople = Options(name: "Saved People") else {
-            fatalError("Unable to instantiate savedPeople")
-        }
-        
-        guard let newConnection = Options(name: "New Connection") else {
-            fatalError("Unable to instantiate newConnection")
-        }
-        
-        guard let logout = Options(name: "Logout") else {
-            fatalError("Unable to instantiate logout")
-        }
-        
-        options += [messaging, editProfile, savedPeople, newConnection, logout]
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadOptions()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -53,46 +26,29 @@ class SettingsOptionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            
-        }else if indexPath.row == 1{
-            //Settings to Edit Screen
-            performSegue(withIdentifier: "settingsToEdit", sender: indexPath)
-        }else if indexPath.row == 2{
-            
-        }else if indexPath.row == 3{
-            
-        }else if indexPath.row == 4{
-            //Goes back to the root controller, but I think it does pop the controllers.
-            self.dismiss(animated: true, completion: {});
-            self.navigationController?.popViewController(animated: true);
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                print("Messaging")
+            case 1:
+                print("Saved People")
+            case 2:
+                print("Edit Profile")
+            case 3:
+                print("Edit Account")
+            default:
+                print("Unexpected row index in section 0")
+            }
+        case 1:
+            print("New Connection")
+        case 2:
+            print("Logout")
+        default:
+            print("Unexpected section index in Settings")
         }
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cellIdentifier = "SettingsTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SettingsTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
-        
-        let option = options[indexPath.row]
-        cell.labelName.text = option.name
-        
-        
-        return cell
-    }
-    
  
 
     /*

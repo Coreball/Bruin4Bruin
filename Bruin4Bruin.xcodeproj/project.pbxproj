@@ -18,10 +18,8 @@
 		3C5B3CFA20966C2B001B22EF /* Bruin4BruinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B3CF920966C2B001B22EF /* Bruin4BruinUITests.swift */; };
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
 		3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */; };
-		3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */; };
 		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
-		3FE9A88620A37E8000BEBCCE /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9A88520A37E8000BEBCCE /* Options.swift */; };
 		85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */; };
 		A9B91A886BFD12ACA9222DC8 /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */; };
 		E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84797E620A0E1260090CA4D /* TagStackView.swift */; };
@@ -66,10 +64,8 @@
 		3C5B3CFB20966C2B001B22EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
-		3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
-		3FE9A88520A37E8000BEBCCE /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB43F84872D4CD0770BF9FE /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
 		8CBDE67D534375A966694E7D /* Pods-Bruin4BruinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4BruinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4BruinUITests/Pods-Bruin4BruinUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */,
-				3FE9A88520A37E8000BEBCCE /* Options.swift */,
 				3C5B3CD920966C2B001B22EF /* AppDelegate.swift */,
 				3C5B3CDB20966C2B001B22EF /* LoginViewController.swift */,
 				3C40C980209D584400BC003B /* MessagingViewController.swift */,
@@ -152,7 +147,6 @@
 				E84797E620A0E1260090CA4D /* TagStackView.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C066FD220A40ECA00742968 /* SettingsOptionTableViewController.swift */,
-				3F5034AA20A22E2400C2F0A7 /* SettingsTableViewCell.swift */,
 				3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
 				3C5B3CE220966C2B001B22EF /* LaunchScreen.storyboard */,
@@ -429,9 +423,7 @@
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
-				3FE9A88620A37E8000BEBCCE /* Options.swift in Sources */,
 				E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */,
-				3F5034AB20A22E2400C2F0A7 /* SettingsTableViewCell.swift in Sources */,
 				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
 				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);
