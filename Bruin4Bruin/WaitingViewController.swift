@@ -33,5 +33,13 @@ class WaitingViewController: UIViewController {
         }
     }
     
-
+    @IBAction func leavePressed(_ sender: UIButton) {
+        if (self.parent as? EditProfileViewController) != nil {
+            performSegue(withIdentifier: "UnwindToEditProfileFromWaiting", sender: nil)
+        }
+        if (self.parent as? MessagingViewController) != nil {
+            performSegue(withIdentifier: "UnwindToMessagingFromWaiting", sender: <#T##Any?#>)
+        }
+    }
+    
 }
