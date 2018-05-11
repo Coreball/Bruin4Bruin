@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
         errorLabel.isHidden = true  // Hide the error until needed
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
