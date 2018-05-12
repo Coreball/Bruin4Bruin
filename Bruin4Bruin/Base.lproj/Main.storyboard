@@ -130,19 +130,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-j6-j4Z">
                                 <rect key="frame" x="8" y="64" width="304" height="496"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-MX-GNp">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-MX-GNp">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="458"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YQb-m5-Wg0" customClass="MessagingTableViewCell" customModule="Bruin4Bruin" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagingTableViewCell" id="YQb-m5-Wg0" customClass="MessagingTableViewCell" customModule="Bruin4Bruin" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="304" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YQb-m5-Wg0" id="woN-47-KOA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-LM-o4D">
-                                                            <rect key="frame" x="4" y="4" width="390" height="35.5"/>
+                                                            <rect key="frame" x="4" y="4" width="296" height="35.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Message Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALv-og-KWL">
                                                                     <rect key="frame" x="0.0" y="0.0" width="94.5" height="25.5"/>
@@ -153,7 +153,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-Lm-LaC">
                                                                     <rect key="frame" x="0.0" y="25.5" width="44" height="10"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -213,6 +213,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messagingTableView" destination="Tg4-MX-GNp" id="gX9-XP-KcI"/>
                         <segue destination="EmD-6X-20b" kind="show" identifier="MessagingToSettings" id="cUF-fn-CzT"/>
                     </connections>
                 </viewController>

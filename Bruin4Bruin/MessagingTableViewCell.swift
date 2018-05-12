@@ -23,5 +23,17 @@ class MessagingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setLeft() {
+        message.textColor = .red
+        message.textAlignment = .left
+        timestamp.textAlignment = .left
+    }
+    
+    func setRight() {
+        message.textColor = .blue
+        message.textAlignment = .right
+        timestamp.textAlignment = .right
+    }
 
 }

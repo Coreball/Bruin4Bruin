@@ -9,17 +9,19 @@
 import UIKit
 import Firebase
 
-class MessagingViewController: UIViewController {
+class MessagingViewController: UIViewController, UITableViewDataSource {
     
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
+    
+    @IBOutlet weak var messagingTableView: UITableView!
     
     var email = ""
     var uid = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        messagingTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -40,6 +42,25 @@ class MessagingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MessagingTableViewCell", for: indexPath) as? MessagingTableViewCell else {
+            fatalError("Dequed cell is not MessagingTableViewCell!")
+        }
+        
+        cell.message.text = "HELLO"
+        cell.timestamp.text = "WORLD!"
+        
+        return cell
     }
     
     @IBAction func testPressed(_ sender: UIButton) {
