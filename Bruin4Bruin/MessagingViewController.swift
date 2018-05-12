@@ -14,12 +14,15 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     var messages = [QueryDocumentSnapshot]()
+    var userDocumentListener: ListenerRegistration?
+    var messagesListener: ListenerRegistration?
     
     @IBOutlet weak var messagingTableView: UITableView!
     @IBOutlet weak var messageField: UITextField!
     
     var email = ""
     var uid = ""
+    var currentchat = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +36,16 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                 print("\(type(of: self)) updating user info")
                 self.email = user.email!
                 self.uid = user.uid
+                self.addUserDocumentListener()
             }
-        }
-        db.collection("chats").document("testchat").collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
-            guard let documents = querySnapshot?.documents else {
-                print("Error getting documents!: \(error!)")
-                return
-            }
-            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
-            self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
-            let content = documents.map { $0["content"]! }
-            print("Messages: \(content)")
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
+        userDocumentListener?.remove()
+        messagesListener?.remove()
+        // Are these in the right order??
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +85,32 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    func addUserDocumentListener() {
+        userDocumentListener = db.collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            if let chat = document.data()!["currentchat"] as? String {
+                self.currentchat = chat  // Update the user's current chat room
+                self.addMessagesListener()  // Do it here so currentchat is something
+            }
+        }
+    }
+    
+    func addMessagesListener() {
+        messagesListener = db.collection("chats").document(currentchat).collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
+            guard let documents = querySnapshot?.documents else {
+                print("Error getting documents!: \(error!)")
+                return
+            }
+            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
+            self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
+            let content = documents.map { $0["content"]! }
+            print("Messages: \(content)")
+        }
+    }
+    
     @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "MessagingToSettings", sender: nil)
     }
@@ -97,10 +120,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        if let text = messageField.text, !text.isEmpty {
+        if let text = messageField.text, !text.isEmpty, !currentchat.isEmpty {
             print("Sending: \(text)")
             messageField.text = ""
-            db.collection("chats").document("testchat").collection("messages").addDocument(data: [
+            db.collection("chats").document(currentchat).collection("messages").addDocument(data: [  // Hopefully by the time the first message is sent we already know what currentchat is actually i'll just add a check in the big if statement
                 "content" : text,
                 "from" : uid,
                 "timestamp" : Timestamp()
@@ -111,6 +134,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                     print("Successfully sent: \(text)")
                 }
             }
+        } else {
+            print("Message is blank or currentchat is not set")
         }
     }
     
