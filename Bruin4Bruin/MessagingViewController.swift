@@ -34,44 +34,25 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                 print("\(type(of: self)) updating user info")
                 self.email = user.email!
                 self.uid = user.uid
-                print("Messaging: \(self.uid)")
-                self.db.collection("users").document(self.uid).getDocument { (document, error) in  // Load the chat messages
-                    if let chat = document?.data()!["currentchat"] as? String, !chat.isEmpty {
+                self.db.collection("users").document(self.uid).getDocument { (document, error) in
+                    if let chat = document?.data()!["currentchat"] as? String {
                         self.currentchat = chat
-                        self.db.collection("chats").document(self.currentchat).collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
-                            guard let documents = querySnapshot?.documents else {
-                                print("Error getting documents!: \(error!)")
-                                return
-                            }
-                            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
-                            self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
-                            let content = documents.map { $0["content"]! }
-                            print("Messages: \(content)")
-                        }
-                        self.messagingTableView.reloadData()
                     } else {
-                        print("Failed to find current chat! in Messaging")
+                        print("Failed to find current chat!")
                     }
                 }
-               
-                self.db.collection("users").document(self.uid).addSnapshotListener { querySnapshot, error in  // Add listener to end if the currentchat suddenly ends
-                    print("saw user update!")
-                    guard let data = querySnapshot?.data() else {
-                        print("Error getting \(self.uid) document!")
-                        return
-                    }
-                    print("FIRST: \(data["first"]!)")
-                    print("CHAT: \(data["currentchat"]!)")
-                    
-                    if let chat = data["currentchat"] as? String, chat.isEmpty {  // WHY DOES THIS SOMETIMES EVALUATE AS TRUE?!?!?
-                        print("Your partner closed the connection!!")
-                        self.performSegue(withIdentifier: "MessagingToWaiting", sender: nil)
-                    }
-                }
-                
             }
         }
-        
+        db.collection("chats").document(currentchat).collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
+            guard let documents = querySnapshot?.documents else {
+                print("Error getting documents!: \(error!)")
+                return
+            }
+            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
+            self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
+            let content = documents.map { $0["content"]! }
+            print("Messages: \(content)")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
