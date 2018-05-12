@@ -14,12 +14,14 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpTags(tags: ["test", "two"])
+        setUpTags(tags: [" art ", "gaming", "literature", "music", "volunteering"])
+        setUpHorizontalStack()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        setUpTags(tags: ["test", "two"])
+        setUpTags(tags: [" art ", "gaming", "literature", "music", "volunteering"])
+        setUpHorizontalStack()
     }
     
     public func setUpTags(tags: [String]) {
@@ -28,12 +30,27 @@ import UIKit
         }
     }
     
+    private func setUpHorizontalStack() {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        addArrangedSubview(stack)
+    }
+    
     private func setUpTag(tag: String) {
         let button = UIButton()
         button.setTitle(tag, for: .normal)
+        if button.state == .normal {
+            button.setTitleColor(UIColor.blue, for: .normal)
+            button.backgroundColor = UIColor.white
+        } else if button.state == .highlighted {
+            button.setTitleColor(UIColor.white, for: .highlighted)
+            button.backgroundColor = UIColor.blue
+        }
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        //button.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
         addArrangedSubview(button)
     }
     

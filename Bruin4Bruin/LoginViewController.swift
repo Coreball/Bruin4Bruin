@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,31 @@ class LoginViewController: UIViewController {
 //        button.frame = CGRect(x: 200, y: 200, width: 200, height: 200)
 //        button.backgroundColor = .green
 //        self.view.addSubview(button)
+        
+        let topColor = UIColor(red: (15/255.0), green: (118/255.0), blue: (128/255.0), alpha: 1)
+        let bottomColor = UIColor(red: (84/255.0), green: (187/255.0), blue: (187/255.0), alpha: 1)
+        
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLocations: [Float] = [0.0, 1.0]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations as [NSNumber]
+        
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.borderWidth = 0.75
+        
+        usernameTextField.layer.borderColor = UIColor.white.cgColor
+        usernameTextField.layer.borderWidth = 0.75
+        usernameTextField.layer.cornerRadius = 8
+        
+        passwordTextField.layer.borderColor = UIColor.white.cgColor
+        passwordTextField.layer.borderWidth = 0.75
+        passwordTextField.layer.cornerRadius = 8
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
