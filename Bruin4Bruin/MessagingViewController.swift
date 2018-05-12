@@ -20,7 +20,6 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     
     var email = ""
     var uid = ""
-    var currentchat = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +33,9 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                 print("\(type(of: self)) updating user info")
                 self.email = user.email!
                 self.uid = user.uid
-                self.db.collection("users").document(self.uid).getDocument { (document, error) in
-                    if let chat = document?.data()!["currentchat"] as? String {
-                        self.currentchat = chat
-                    } else {
-                        print("Failed to find current chat!")
-                    }
-                }
             }
         }
-        db.collection("chats").document(currentchat).collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
+        db.collection("chats").document("testchat").collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
             guard let documents = querySnapshot?.documents else {
                 print("Error getting documents!: \(error!)")
                 return
@@ -108,7 +100,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         if let text = messageField.text, !text.isEmpty {
             print("Sending: \(text)")
             messageField.text = ""
-            db.collection("chats").document(currentchat).collection("messages").addDocument(data: [
+            db.collection("chats").document("testchat").collection("messages").addDocument(data: [
                 "content" : text,
                 "from" : uid,
                 "timestamp" : Timestamp()
