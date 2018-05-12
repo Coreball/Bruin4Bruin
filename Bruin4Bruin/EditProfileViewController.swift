@@ -52,6 +52,7 @@ class EditProfileViewController: UIViewController {
                     self.db.collection("users").document(user.uid).setData([
                         "first" : self.textFields[3].text!,
                         "last" : self.textFields[4].text!,
+                        "currentchat" : "",
                         "joined" : Timestamp()
                         // Submit more things like BIO, etc.
                     ]) { err in
