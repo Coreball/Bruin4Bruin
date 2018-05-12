@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class MessagingViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle?
+    let db = Firestore.firestore()
     
     var email = ""
     var uid = ""
