@@ -13,8 +13,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
+    var messages = [QueryDocumentSnapshot]()
     
     @IBOutlet weak var messagingTableView: UITableView!
+    @IBOutlet weak var messageField: UITextField!
     
     var email = ""
     var uid = ""
@@ -33,6 +35,16 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                 self.uid = user.uid
             }
         }
+        db.collection("chats").document("testchat").collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
+            guard let documents = querySnapshot?.documents else {
+                print("Error getting documents!: \(error!)")
+                return
+            }
+            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
+            self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
+            let content = documents.map { $0["content"]! }
+            print("Messages: \(content)")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,7 +61,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,16 +69,23 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
             fatalError("Dequed cell is not MessagingTableViewCell!")
         }
         
-        cell.message.text = "HELLO"
-        cell.timestamp.text = "WORLD!"
+        if let content = messages[indexPath.row].data()["content"] as? String {
+            cell.message.text = content
+        }
+        if let time = messages[indexPath.row].data()["timestamp"] as? Timestamp {
+            cell.timestamp.text = DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
+        }
+        if let from = messages[indexPath.row].data()["from"] as? String {
+            if from == uid {
+                cell.setRight()
+            } else {
+                cell.setLeft()
+            }
+        } else {
+            cell.setLeft()  // Shouldn't be used but here for testing purposes since not all have "from"
+        }
         
         return cell
-    }
-    
-    @IBAction func testPressed(_ sender: UIButton) {
-        print("\(type(of: self)) testing user email and uid")
-        print("Email: \(email)")
-        print("User ID: \(uid)")
     }
     
     @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
@@ -75,6 +94,24 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func profilePressed(_ sender: UIBarButtonItem) {
         // View the other person's profile
+    }
+    
+    @IBAction func sendPressed(_ sender: UIButton) {
+        if let text = messageField.text, !text.isEmpty {
+            print("Sending: \(text)")
+            messageField.text = ""
+            db.collection("chats").document("testchat").collection("messages").addDocument(data: [
+                "content" : text,
+                "from" : uid,
+                "timestamp" : Timestamp()
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Successfully sent: \(text)")
+                }
+            }
+        }
     }
     
     /*
