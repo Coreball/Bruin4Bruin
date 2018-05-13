@@ -94,7 +94,13 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
             print(document.data())
             if let chat = document.data()!["currentchat"] as? String {
                 self.currentchat = chat  // Update the user's current chat room
-                self.addMessagesListener()  // Do it here so currentchat is something
+                if self.currentchat.isEmpty {
+                    print("Either your partner left you or you never had a currentchat. Going to Waiting now.")  // IF TIME SHOW THIS TO THE USER SOMEHOW.
+                    self.performSegue(withIdentifier: "MessagingToWaiting", sender: nil)
+                } else {
+                    self.addMessagesListener()  // Do it here so currentchat is something
+                    self.setTitleFromPartner()
+                }
             }
         }
     }
@@ -109,6 +115,28 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
             self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
             let content = documents.map { $0["content"]! }
             print("Messages: \(content)")
+        }
+    }
+    
+    func setTitleFromPartner() {
+        db.collection("chats").document(currentchat).getDocument { document, error in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error finding partner name: \(String(describing: error))")
+                return
+            }
+            var partner = "?"
+            if let me = data["peanutbutter"] as? String, me == self.uid {
+                partner = data["jelly"] as! String
+            } else if let me = data["jelly"] as? String, me == self.uid {
+                partner = data["peanutbutter"] as! String
+            }
+            self.db.collection("users").document(partner).getDocument { document, error in
+                guard let document = document, document.exists, let partnerData = document.data() else {
+                    print("Error finding partner document: \(String(describing: error))")
+                    return
+                }
+                self.navigationItem.title = partnerData["first"] as? String
+            }
         }
     }
     

@@ -62,6 +62,7 @@ class WaitingViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
+        poolListener?.remove()
         // Right order??
     }
 
@@ -128,6 +129,19 @@ class WaitingViewController: UIViewController {
         }
     }
     
+    func makeMatch() {
+        let random = Int(arc4random_uniform(UInt32(othersInPool.count)))  // Choose a partner randomly for now
+        partner = othersInPool[random]
+        let newChat = db.collection("chats").document()  // Make a new document for the new chat with random name
+        newChat.setData([
+            "peanutbutter" : uid,
+            "jelly" : partner,
+            "started" : Timestamp()
+            ])
+        db.collection("users").document(uid).updateData(["currentchat" : newChat.documentID])
+        db.collection("users").document(partner).updateData(["currentchat" : newChat.documentID])
+    }
+    
     
     // MARK: - Navigation
 
@@ -142,6 +156,15 @@ class WaitingViewController: UIViewController {
     }
     
     @IBAction func leavePressed(_ sender: UIButton) {
+        if othersInPool.count > 0 {
+            makeMatch()
+            segueToCorrectScreen()
+        } else {
+            print("No other matchers in pool, could not match.")
+        }
+    }
+    
+    func segueToCorrectScreen() {
         if cameFromEditProfile {
             performSegue(withIdentifier: "UnwindToEditProfileFromWaiting", sender: nil)
         } else {

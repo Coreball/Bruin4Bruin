@@ -123,10 +123,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-j6-j4Z">
-                                <rect key="frame" x="8" y="64" width="304" height="496"/>
+                                <rect key="frame" x="8" y="20" width="304" height="540"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-MX-GNp">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="458"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="502"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagingTableViewCell" id="YQb-m5-Wg0" customClass="MessagingTableViewCell" customModule="Bruin4Bruin" customModuleProvider="target">
@@ -169,7 +169,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Anj-la-jhv">
-                                        <rect key="frame" x="0.0" y="466" width="304" height="30"/>
+                                        <rect key="frame" x="0.0" y="510" width="304" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gz9-vD-kgq">
                                                 <rect key="frame" x="0.0" y="0.0" width="260" height="30"/>
@@ -217,6 +217,7 @@
                         <outlet property="messageField" destination="gz9-vD-kgq" id="83y-25-DZu"/>
                         <outlet property="messagingTableView" destination="Tg4-MX-GNp" id="gX9-XP-KcI"/>
                         <segue destination="EmD-6X-20b" kind="show" identifier="MessagingToSettings" id="cUF-fn-CzT"/>
+                        <segue destination="hiO-oo-bLY" kind="presentation" identifier="MessagingToWaiting" id="6Fa-YR-vmn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUL-ES-hQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-f6-6dm">
-                                <rect key="frame" x="60" y="123.5" width="200" height="385"/>
+                                <rect key="frame" x="60" y="101.5" width="200" height="385"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-Jl-dFS">
                                         <rect key="frame" x="12.5" y="0.0" width="175" height="175"/>
@@ -370,14 +371,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I4-tA-7mq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3I4-tA-7mq">
                                 <rect key="frame" x="0.0" y="64" width="320" height="936"/>
                                 <subviews>
                                     <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="T1y-hO-0xr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="936"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="980"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f5N-AS-TbO">
-                                                <rect key="frame" x="20" y="20" width="280" height="896"/>
+                                                <rect key="frame" x="20" y="20" width="280" height="940"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Biography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-hx-UPG">
                                                         <rect key="frame" x="101.5" y="0.0" width="77.5" height="20.5"/>
@@ -396,7 +397,7 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p7e-p7-lle" userLabel="Hobbies View">
-                                                        <rect key="frame" x="0.0" y="180.5" width="280" height="134.5"/>
+                                                        <rect key="frame" x="0.0" y="180.5" width="280" height="180.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-JG-nha">
                                                                 <rect key="frame" x="108" y="0.0" width="64" height="20.5"/>
@@ -405,12 +406,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M2s-K8-eOr" userLabel="Hobby Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="104"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="150"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M7U-om-4Cu" userLabel="Sports View">
-                                                        <rect key="frame" x="0.0" y="325" width="280" height="80.5"/>
+                                                        <rect key="frame" x="0.0" y="371" width="280" height="180.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Add-na-UA4">
                                                                 <rect key="frame" x="114.5" y="0.0" width="51" height="20.5"/>
@@ -419,12 +420,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bh2-yA-4VU" userLabel="Sport Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="50"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="150"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AML-TR-W2h" userLabel="Electives View">
-                                                        <rect key="frame" x="0.0" y="415.5" width="280" height="80.5"/>
+                                                        <rect key="frame" x="0.0" y="561.5" width="280" height="180.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Electives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-UB-ixF">
                                                                 <rect key="frame" x="106" y="0.0" width="68.5" height="20.5"/>
@@ -433,12 +434,12 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="b7N-pf-11m" userLabel="Elective Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="50"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="150"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qTx-8w-yFa" userLabel="Match View">
-                                                        <rect key="frame" x="0.0" y="506" width="280" height="390"/>
+                                                        <rect key="frame" x="0.0" y="752" width="280" height="188"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Match Preference" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2R-lX-cGJ" userLabel="Match Preference">
                                                                 <rect key="frame" x="72" y="0.0" width="136" height="20.5"/>
@@ -447,7 +448,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hvd-yo-Zdt" userLabel="Match Stack" customClass="TagStackView" customModule="Bruin4Bruin" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="359.5"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="280" height="157.5"/>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
@@ -709,19 +710,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Yuw-EP-h4H">
-                                <rect key="frame" x="0.0" y="160" width="0.0" height="248.5"/>
+                                <rect key="frame" x="71" y="160" width="178.5" height="248.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finding another Bruin..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0D-iK-yrH">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YrT-BD-BR1">
-                                        <rect key="frame" x="142" y="60.5" width="37" height="37"/>
+                                        <rect key="frame" x="70.5" y="60.5" width="37" height="37"/>
                                     </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k6w-bq-G1s">
-                                        <rect key="frame" x="82" y="137.5" width="156.5" height="41"/>
+                                        <rect key="frame" x="11" y="137.5" width="156.5" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Bruins in pool:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-AM-lIg">
                                                 <rect key="frame" x="0.0" y="0.0" width="156.5" height="20.5"/>
@@ -730,7 +731,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="none lol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nv-RC-RoH">
-                                                <rect key="frame" x="48.5" y="20.5" width="60" height="20.5"/>
+                                                <rect key="frame" x="48" y="20.5" width="60" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -738,7 +739,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2A4-iR-xsE">
-                                        <rect key="frame" x="93" y="218.5" width="135" height="30"/>
+                                        <rect key="frame" x="21.5" y="218.5" width="135" height="30"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.19854987157534246" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="135" id="tBg-Dp-ZP4"/>
@@ -796,9 +797,10 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vh1-Ez-aRQ"/>
-        <segue reference="hIC-5Q-pJy"/>
-        <segue reference="9VR-w3-oyN"/>
-        <segue reference="Uyj-mA-cvY"/>
+        <segue reference="cUF-fn-CzT"/>
+        <segue reference="6Fa-YR-vmn"/>
+        <segue reference="82Z-v7-5nF"/>
+        <segue reference="quS-Pc-Mi5"/>
+        <segue reference="kfy-C1-sgE"/>
     </inferredMetricsTieBreakers>
 </document>
