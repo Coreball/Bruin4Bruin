@@ -14,8 +14,6 @@ class WaitingViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     var messages = [QueryDocumentSnapshot]()
-    var userDocumentListener: ListenerRegistration?
-    var messagesListener: ListenerRegistration?
     
     var cameFromEditProfile = false
     var uid = ""
@@ -47,15 +45,13 @@ class WaitingViewController: UIViewController {
             if let user = user {
                 print("\(type(of: self)) updating user info")
                 self.uid = user.uid
-                self.addUserDocumentListener()
-            }	
+                self.endCurrentChat()
+            }
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
-        userDocumentListener?.remove()
-        messagesListener?.remove()
         // Right order??
     }
 
@@ -64,42 +60,38 @@ class WaitingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func addUserDocumentListener() {
-        userDocumentListener = db.collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
+    func endCurrentChat() {
+        db.collection("users").document(uid).getDocument { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
             }
             if let chat = document.data()!["currentchat"] as? String {
                 self.currentchat = chat  // Update the user's current chat room
-                self.addMessagesListener()  // Do it here so currentchat is something
+                print("Current chat: \(self.currentchat)")
+                self.db.collection("chats").document(self.currentchat).updateData(["ended" : Timestamp()])  // Write that this chat has ended at this time
+                self.fixPartner()
+                self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
+            } else {
+                print("Couldn't find current chat!")
             }
-            // Please finish this method.
-        }
-    }
-    
-    func addMessagesListener() {
-        messagesListener = db.collection("chats").document(currentchat).collection("messages").order(by: "timestamp").addSnapshotListener { querySnapshot, error in  // Listens for updates to messages
-            guard let documents = querySnapshot?.documents else {
-                print("Error getting documents!: \(error!)")
-                return
-            }
-            // Delete this method?
         }
     }
     
     func fixPartner() {
         db.collection("chats").document(currentchat).getDocument { document, error in
-            guard let data = document?.data() else {
-                print("Error fixing partner: \(error!)")
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error fixing partner: \(String(describing: error))")
                 return
             }
+            print(data)
             if let me = data["peanutbutter"] as? String, me == self.uid {
                 self.partner = data["jelly"]! as! String
             } else if let me = data["jelly"] as? String, me == self.uid {
                 self.partner = data["peanutbutter"]! as! String
             }
-            // Remove the partner's stuffs
+            print("Previous partner: \(self.partner)")
+            self.db.collection("users").document(self.partner).updateData(["currentchat" : ""])  // Remove the partner's current chat
         }
     }
     

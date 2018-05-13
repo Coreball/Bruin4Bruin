@@ -91,6 +91,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                 print("Error fetching document: \(error!)")
                 return
             }
+            print(document.data())
             if let chat = document.data()!["currentchat"] as? String {
                 self.currentchat = chat  // Update the user's current chat room
                 self.addMessagesListener()  // Do it here so currentchat is something
