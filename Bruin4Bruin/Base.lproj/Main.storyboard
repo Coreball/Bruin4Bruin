@@ -734,6 +734,7 @@
                     </view>
                     <connections>
                         <outlet property="leaveButton" destination="2A4-iR-xsE" id="BAW-8B-9WS"/>
+                        <outlet property="numberOfOthersInPoolLbl" destination="0nv-RC-RoH" id="ubi-Qq-CWs"/>
                         <segue destination="5jC-Ie-Jqk" kind="unwind" identifier="UnwindToMessagingFromWaiting" unwindAction="unwindToMessagingWithSegue:" id="THx-bg-xXj"/>
                         <segue destination="5jC-Ie-Jqk" kind="unwind" identifier="UnwindToEditProfileFromWaiting" unwindAction="unwindToEditProfileWithSegue:" id="psM-Z4-NfX"/>
                     </connections>

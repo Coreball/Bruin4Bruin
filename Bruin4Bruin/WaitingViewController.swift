@@ -14,13 +14,16 @@ class WaitingViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     var messages = [QueryDocumentSnapshot]()
+    var poolListener: ListenerRegistration?
     
     @IBOutlet weak var leaveButton: UIButton!
+    @IBOutlet weak var numberOfOthersInPoolLbl: UILabel!
     
     var cameFromEditProfile = false
     var uid = ""
     var currentchat = ""
     var partner = ""
+    var othersInPool = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +79,18 @@ class WaitingViewController: UIViewController {
             if let chat = document.data()!["currentchat"] as? String {
                 self.currentchat = chat  // Update the user's current chat room
                 print("Current chat: \(self.currentchat)")
-                self.db.collection("chats").document(self.currentchat).updateData(["ended" : Timestamp()])  // Write that this chat has ended at this time
-                self.fixPartner()
-                self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
+                if self.currentchat.isEmpty {
+                    print("There is a currentchat field but it is empty.")
+                    // do nothing if don't need to clear a chat or fix partner
+                } else {
+                    self.db.collection("chats").document(self.currentchat).updateData(["ended" : Timestamp()])  // Write that this chat has ended at this time
+                    self.fixPartner()
+                    self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
+                }
             } else {
-                print("Couldn't find current chat!")
+                print("No chat found.")  // Could have come from creating account
             }
+            self.addPoolListener()
         }
     }
     
@@ -99,6 +108,23 @@ class WaitingViewController: UIViewController {
             }
             print("Previous partner: \(self.partner)")
             self.db.collection("users").document(self.partner).updateData(["currentchat" : ""])  // Remove the partner's current chat
+        }
+    }
+    
+    func addPoolListener() {
+        poolListener = db.collection("users").whereField("currentchat", isEqualTo: "").addSnapshotListener { querySnapshot, error in  // This will update at least twice, when currentuser and partner leave their currentchat.
+            guard let bachelors = querySnapshot?.documents else {
+                print("Error getting documents of users in pool: \(error!)")
+                return
+            }
+            print("Bachelors and Bachelorettes: \(bachelors.map { $0["first"] })")
+            self.othersInPool = [String]()
+            for user in bachelors {
+                if user.documentID != self.uid {
+                    self.othersInPool += [user.documentID]
+                }
+            }
+            self.numberOfOthersInPoolLbl.text = String(self.othersInPool.count)
         }
     }
     
