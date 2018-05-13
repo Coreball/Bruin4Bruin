@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let db = Firestore.firestore()
         let settings = db.settings
+        settings.isPersistenceEnabled = false  // DO NOT KEEP OLD JUNK AROUND. FRICK THIS
         settings.areTimestampsInSnapshotsEnabled = true  // Conform to the new Timestamp suggestions
         db.settings = settings
         return true

@@ -7,10 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class WaitingViewController: UIViewController {
     
+    var handle: AuthStateDidChangeListenerHandle?
+    let db = Firestore.firestore()
+    var messages = [QueryDocumentSnapshot]()
+    var poolListener: ListenerRegistration?
+    
+    @IBOutlet weak var leaveButton: UIButton!
+    @IBOutlet weak var numberOfOthersInPoolLbl: UILabel!
+    
     var cameFromEditProfile = false
+    var uid = ""
+    var currentchat = ""
+    var partner = ""
+    var othersInPool = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +43,89 @@ class WaitingViewController: UIViewController {
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        leaveButton.layer.borderColor = UIColor.white.cgColor
+        leaveButton.layer.borderWidth = 0.75
+        leaveButton.layer.cornerRadius = 6
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in  // This gets the authenticated user's info
+            if let user = user {
+                print("\(type(of: self)) updating user info")
+                self.uid = user.uid
+                self.endCurrentChat()
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // Right order??
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func endCurrentChat() {
+        db.collection("users").document(uid).getDocument { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            if let chat = document.data()!["currentchat"] as? String {
+                self.currentchat = chat  // Update the user's current chat room
+                print("Current chat: \(self.currentchat)")
+                if self.currentchat.isEmpty {
+                    print("There is a currentchat field but it is empty.")
+                    // do nothing if don't need to clear a chat or fix partner
+                } else {
+                    self.db.collection("chats").document(self.currentchat).updateData(["ended" : Timestamp()])  // Write that this chat has ended at this time
+                    self.fixPartner()
+                    self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
+                }
+            } else {
+                print("No chat found.")  // Could have come from creating account
+            }
+            self.addPoolListener()
+        }
+    }
+    
+    func fixPartner() {
+        db.collection("chats").document(currentchat).getDocument { document, error in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error fixing partner: \(String(describing: error))")
+                return
+            }
+            print(data)
+            if let me = data["peanutbutter"] as? String, me == self.uid {
+                self.partner = data["jelly"]! as! String
+            } else if let me = data["jelly"] as? String, me == self.uid {
+                self.partner = data["peanutbutter"]! as! String
+            }
+            print("Previous partner: \(self.partner)")
+            self.db.collection("users").document(self.partner).updateData(["currentchat" : ""])  // Remove the partner's current chat
+        }
+    }
+    
+    func addPoolListener() {
+        poolListener = db.collection("users").whereField("currentchat", isEqualTo: "").addSnapshotListener { querySnapshot, error in  // This will update at least twice, when currentuser and partner leave their currentchat.
+            guard let bachelors = querySnapshot?.documents else {
+                print("Error getting documents of users in pool: \(error!)")
+                return
+            }
+            print("Bachelors and Bachelorettes: \(bachelors.map { $0["first"] })")
+            self.othersInPool = [String]()
+            for user in bachelors {
+                if user.documentID != self.uid {
+                    self.othersInPool += [user.documentID]
+                }
+            }
+            self.numberOfOthersInPoolLbl.text = String(self.othersInPool.count)
+        }
     }
     
     
