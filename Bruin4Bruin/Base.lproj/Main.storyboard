@@ -217,6 +217,7 @@
                         <outlet property="messageField" destination="gz9-vD-kgq" id="83y-25-DZu"/>
                         <outlet property="messagingTableView" destination="Tg4-MX-GNp" id="gX9-XP-KcI"/>
                         <segue destination="EmD-6X-20b" kind="show" identifier="MessagingToSettings" id="cUF-fn-CzT"/>
+                        <segue destination="hiO-oo-bLY" kind="presentation" identifier="MessagingToWaiting" id="6Fa-YR-vmn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUL-ES-hQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -768,7 +769,7 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aRT-6f-dda"/>
+        <segue reference="6Fa-YR-vmn"/>
         <segue reference="hIC-5Q-pJy"/>
         <segue reference="9VR-w3-oyN"/>
         <segue reference="Uyj-mA-cvY"/>
