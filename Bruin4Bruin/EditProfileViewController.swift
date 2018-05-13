@@ -18,10 +18,12 @@ class EditProfileViewController: UIViewController {
     let db = Firestore.firestore()
     var isCreatingAccount = false
     var skipToMessaging = false
+    @IBOutlet var stacks: [TagStackView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollInside.frame.size.height = 5000
+        loadStacks()
 //        scrollInside.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 500)
 //        scrollInside.frame = CGRect(x: 0, y: 0, self.view.safeAreaLayoutGuide.widthAnchor  )
         // Do any additional setup after loading the view.
@@ -42,6 +44,12 @@ class EditProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    public func loadStacks() {
+        for index in 0...3 {
+            stacks[index].loadWithID(for: index)
+        }
+    }
+    
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
             Auth.auth().createUser(withEmail: textFields[0].text!, password: textFields[1].text!) { (user, error) in
