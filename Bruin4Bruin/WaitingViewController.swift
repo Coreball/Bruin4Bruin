@@ -15,6 +15,8 @@ class WaitingViewController: UIViewController {
     let db = Firestore.firestore()
     var messages = [QueryDocumentSnapshot]()
     
+    @IBOutlet weak var leaveButton: UIButton!
+    
     var cameFromEditProfile = false
     var uid = ""
     var currentchat = ""
@@ -38,6 +40,11 @@ class WaitingViewController: UIViewController {
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        leaveButton.layer.borderColor = UIColor.white.cgColor
+        leaveButton.layer.borderWidth = 0.75
+        leaveButton.layer.cornerRadius = 6
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -42,13 +42,15 @@ class LoginViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.borderWidth = 0.75
         
+        usernameTextField.layer.masksToBounds = true
         usernameTextField.layer.borderColor = UIColor.white.cgColor
         usernameTextField.layer.borderWidth = 0.75
-        usernameTextField.layer.cornerRadius = 8
+        usernameTextField.layer.cornerRadius = 6
         
+        usernameTextField.layer.masksToBounds = true
         passwordTextField.layer.borderColor = UIColor.white.cgColor
         passwordTextField.layer.borderWidth = 0.75
-        passwordTextField.layer.cornerRadius = 8
+        passwordTextField.layer.cornerRadius = 6
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
