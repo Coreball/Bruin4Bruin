@@ -19,6 +19,7 @@ UINavigationControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //gradient
         let topColor = UIColor(red: (15/255.0), green: (118/255.0), blue: (128/255.0), alpha: 1)
         let bottomColor = UIColor(red: (84/255.0), green: (187/255.0), blue: (187/255.0), alpha: 1)
         
@@ -31,13 +32,18 @@ UINavigationControllerDelegate{
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        //text field borders
+        for textbox in textFields {
+            textbox.layer.masksToBounds = true
+            textbox.layer.borderColor = UIColor.white.cgColor
+            textbox.layer.borderWidth = 0.75
+            textbox.layer.cornerRadius = 6
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        for textField in textFields {
-            textField.layer.borderColor = UIColor.red.cgColor  // Can't do this in Storyboard
-            textField.layer.borderWidth = 0  // Don't show the border
-        }
         if isCreatingAccount {
             saveButton.title = "Next"
         } else {
@@ -69,34 +75,36 @@ UINavigationControllerDelegate{
         
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        
         if !emailTest.evaluate(with: textFields[0].text) {  // Test if email is valid
-            textFields[0].layer.borderWidth = 0.5
+            //textFields[0].layer.borderWidth = 0.75
+            textFields[0].layer.borderColor = UIColor.red.cgColor
             isValid = false
         } else {
-            textFields[0].layer.borderWidth = 0
+            textFields[0].layer.borderColor = UIColor.white.cgColor
         }
         
         if textFields[1].text != textFields[2].text || textFields[1].text!.isEmpty {  // Test if passwords do not match or are empty
-            textFields[1].layer.borderWidth = 0.5
-            textFields[2].layer.borderWidth = 0.5
+            textFields[1].layer.borderColor = UIColor.red.cgColor
+            textFields[2].layer.borderColor = UIColor.red.cgColor
             isValid = false
         } else {
-            textFields[1].layer.borderWidth = 0
-            textFields[2].layer.borderWidth = 0
+            textFields[1].layer.borderColor = UIColor.white.cgColor
+            textFields[2].layer.borderColor = UIColor.white.cgColor
         }
         
         if textFields[3].text!.isEmpty {  // Test if First Name is blank
-            textFields[3].layer.borderWidth = 0.5
+            textFields[3].layer.borderColor = UIColor.red.cgColor
             isValid = false
         } else {
-            textFields[3].layer.borderWidth = 0
+            textFields[3].layer.borderColor = UIColor.white.cgColor
         }
         
         if textFields[4].text!.isEmpty {  // Test if Last Name is blank
-            textFields[4].layer.borderWidth = 0.5
+            textFields[4].layer.borderColor = UIColor.red.cgColor
             isValid = false
         } else {
-            textFields[4].layer.borderWidth = 0
+            textFields[4].layer.borderColor = UIColor.white.cgColor
         }
         
         return isValid
