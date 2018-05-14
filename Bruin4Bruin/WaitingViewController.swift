@@ -15,6 +15,7 @@ class WaitingViewController: UIViewController {
     let db = Firestore.firestore()
     var messages = [QueryDocumentSnapshot]()
     var poolListener: ListenerRegistration?
+    var joinedChatListener: ListenerRegistration?
     
     @IBOutlet weak var leaveButton: UIButton!
     @IBOutlet weak var numberOfOthersInPoolLbl: UILabel!
@@ -63,6 +64,7 @@ class WaitingViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
         poolListener?.remove()
+        joinedChatListener?.remove()
         // Right order??
     }
 
@@ -92,6 +94,7 @@ class WaitingViewController: UIViewController {
                 print("No chat found.")  // Could have come from creating account
             }
             self.addPoolListener()
+            self.addJoinedChatListener()
         }
     }
     
@@ -126,6 +129,20 @@ class WaitingViewController: UIViewController {
                 }
             }
             self.numberOfOthersInPoolLbl.text = String(self.othersInPool.count)
+        }
+    }
+    
+    func addJoinedChatListener() {
+        joinedChatListener = db.collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            print("Database user was modified!")
+            if let chat = document.data()!["currentchat"] as? String, !chat.isEmpty, chat != self.currentchat {
+                print("Database current chat changed to \(chat), initiating segue now")
+                self.segueToCorrectScreen()  // Leave if we were just on the waiting screen and joined a new chat by someone else's hand
+            }
         }
     }
     
