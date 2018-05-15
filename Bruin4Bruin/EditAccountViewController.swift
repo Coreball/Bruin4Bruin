@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate{
     
+    let db = Firestore.firestore()
+    
     @IBOutlet var textFields: [UITextField]!  // Email, Password, Confirm Password, First Name, Last Name in that order
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    
     var isCreatingAccount = false
+    var skipToMessaging = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,8 @@ UINavigationControllerDelegate{
     override func viewWillAppear(_ animated: Bool) {
         if isCreatingAccount {
             saveButton.title = "Next"
+        } else if skipToMessaging {
+            performSegue(withIdentifier: "EditAccountToMessaging", sender: nil)
         } else {
             saveButton.title = "Save"
         }
@@ -59,8 +66,33 @@ UINavigationControllerDelegate{
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
-            if validateTextFields() {
-                performSegue(withIdentifier: "EditAccountToEditProfile", sender: nil)
+            if validateTextFields(), let email = textFields[0].text, let password = textFields[1].text {
+                Auth.auth().createUser(withEmail: email, password: password) { user, error in
+                    if let user = user {
+                        print("\(type(of: self)) successfully created new user")
+                        print("User ID: \(user.uid)")
+                        print("Email: \(user.email!)")
+                        self.db.collection("users").document(user.uid).setData([
+                            "first" : self.textFields[3].text!,
+                            "last" : self.textFields[4].text!,
+                            "currentchat" : "",  // Needed for waiting screen to count as in pool
+                            "joined" : Timestamp()
+                        ]) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("Successfully wrote to \(user.email!) document")
+                                self.performSegue(withIdentifier: "EditAccountToWaiting", sender: nil)
+                            }
+                        }
+                        let profilePicRef = Storage.storage().reference().child("users/\(user.uid)/profilePicture.png")
+                        profilePicRef.putData(UIImagePNGRepresentation(self.imageView.image!)!)  // Upload the profile picture
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+                }
+            } else {
+                print("Text field failed to pass validation")
             }
         } else {
             // save and return to settings
@@ -68,6 +100,7 @@ UINavigationControllerDelegate{
             performSegue(withIdentifier: "UnwindToSettingsFromEditAccount", sender: nil)
         }
     }
+    
     
     func validateTextFields() -> Bool {
         
@@ -119,7 +152,7 @@ UINavigationControllerDelegate{
         imagePickerController.sourceType = .photoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
+        imagePickerController.delegate = self  // WE ARE USING DELEGATES SEEE
         present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -144,17 +177,21 @@ UINavigationControllerDelegate{
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let editProfileVC = segue.destination as? EditProfileViewController {  // If this is creating account make last button "Finish"
-            editProfileVC.isCreatingAccount = true
-            editProfileVC.textFields = textFields  // Pass on the user info we just got
-            editProfileVC.profilePic = imageView.image!  // Pass on whatever image is currently selected
+        isCreatingAccount = false
+        skipToMessaging = false
+        if let waiting = segue.destination as? WaitingViewController {
+            waiting.cameFromEditAccount = true
         }
     }
     
+    // Unwind here (probably from Waiting)
+    @IBAction func unwindToEditAccount(segue: UIStoryboardSegue) {
+        
+    }
 
 }

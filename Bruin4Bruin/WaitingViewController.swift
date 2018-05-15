@@ -20,7 +20,7 @@ class WaitingViewController: UIViewController {
     @IBOutlet weak var leaveButton: UIButton!
     @IBOutlet weak var numberOfOthersInPoolLbl: UILabel!
     
-    var cameFromEditProfile = false
+    var cameFromEditAccount = false
     var uid = ""
     var currentchat = ""
     var partner = ""
@@ -147,6 +147,8 @@ class WaitingViewController: UIViewController {
     }
     
     func makeMatch() {
+        joinedChatListener?.remove()
+        print("Removed join chat listener")  // Don't want it to trigger segue before currentchat is written
         let random = Int(arc4random_uniform(UInt32(othersInPool.count)))  // Choose a partner randomly for now
         partner = othersInPool[random]
         let newChat = db.collection("chats").document()  // Make a new document for the new chat with random name
@@ -157,6 +159,8 @@ class WaitingViewController: UIViewController {
             ])
         db.collection("users").document(uid).updateData(["currentchat" : newChat.documentID])
         db.collection("users").document(partner).updateData(["currentchat" : newChat.documentID])
+        print("Finished writing uid information with new chat")
+        segueToCorrectScreen()
     }
     
     
@@ -166,9 +170,9 @@ class WaitingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        cameFromEditProfile = false
-        if let editProfile = segue.destination as? EditProfileViewController {
-            editProfile.skipToMessaging = true  // Unwind and then skip directly to messaging
+        cameFromEditAccount = false
+        if let editAccount = segue.destination as? EditAccountViewController {
+            editAccount.skipToMessaging = true  // Unwind and then skip directly to messaging
         }
     }
     
@@ -182,10 +186,10 @@ class WaitingViewController: UIViewController {
     }
     
     func segueToCorrectScreen() {
-        if cameFromEditProfile {
-            performSegue(withIdentifier: "UnwindToEditProfileFromWaiting", sender: nil)
+        if cameFromEditAccount {
+            performSegue(withIdentifier: "UnwindToEditAccountFromWaiting", sender: nil)
         } else {
-            performSegue(withIdentifier: "UnwindToMessagingFromWaiting", sender: nil)
+            performSegue(withIdentifier: "UnwindToMessagingFromWaiting", sender: nil)  // Skip the settings screen
         }
     }
     

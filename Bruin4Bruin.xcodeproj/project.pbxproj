@@ -19,7 +19,6 @@
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
 		3CE9B1A920A66A9000683267 /* MessagingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9B1A820A66A9000683267 /* MessagingTableViewCell.swift */; };
 		3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */; };
-		3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B3209B981100567B33 /* EditProfileViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
 		85EBACFC289373EBC6B5879F /* Pods_Bruin4BruinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CC0A0E73B5947C070A1A6 /* Pods_Bruin4BruinTests.framework */; };
 		A9B91A886BFD12ACA9222DC8 /* Pods_Bruin4Bruin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */; };
@@ -66,7 +65,6 @@
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE9B1A820A66A9000683267 /* MessagingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingTableViewCell.swift; sourceTree = "<group>"; };
 		3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
-		3FE092B3209B981100567B33 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		85B1987CF597252661FD72B7 /* Pods_Bruin4Bruin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bruin4Bruin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB43F84872D4CD0770BF9FE /* Pods-Bruin4Bruin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bruin4Bruin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bruin4Bruin/Pods-Bruin4Bruin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				3C40C980209D584400BC003B /* MessagingViewController.swift */,
 				3CE9B1A820A66A9000683267 /* MessagingTableViewCell.swift */,
 				3FE092B5209B982400567B33 /* EditAccountViewController.swift */,
-				3FE092B3209B981100567B33 /* EditProfileViewController.swift */,
 				E84797E620A0E1260090CA4D /* TagStackView.swift */,
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C066FD220A40ECA00742968 /* SettingsOptionTableViewController.swift */,
@@ -429,7 +426,6 @@
 				E84797E720A0E1260090CA4D /* TagStackView.swift in Sources */,
 				3CE9B1A920A66A9000683267 /* MessagingTableViewCell.swift in Sources */,
 				3C40C981209D584400BC003B /* MessagingViewController.swift in Sources */,
-				3FE092B4209B981100567B33 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
