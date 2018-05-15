@@ -25,13 +25,11 @@ class MessagingTableViewCell: UITableViewCell {
     }
     
     func setLeft() {
-        message.textColor = .red
         message.textAlignment = .left
         timestamp.textAlignment = .left
     }
     
     func setRight() {
-        message.textColor = .blue
         message.textAlignment = .right
         timestamp.textAlignment = .right
     }

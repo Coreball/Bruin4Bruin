@@ -23,6 +23,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     var email = ""
     var uid = ""
     var currentchat = ""
+    var userFull = ""
+    var partnerFull = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,14 +85,13 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         if let content = messages[indexPath.row].data()["content"] as? String {
             cell.message.text = content
         }
-        if let time = messages[indexPath.row].data()["timestamp"] as? Timestamp {
-            cell.timestamp.text = DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
-        }
-        if let from = messages[indexPath.row].data()["from"] as? String {
+        if let from = messages[indexPath.row].data()["from"] as? String, let time = messages[indexPath.row].data()["timestamp"] as? Timestamp {
             if from == uid {
                 cell.setRight()
+                cell.timestamp.text = userFull + " at " + DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
             } else {
                 cell.setLeft()
+                cell.timestamp.text = partnerFull + " at " + DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
             }
         } else {
             cell.setLeft()  // Shouldn't be used but here for testing purposes since not all have "from"
@@ -101,12 +102,15 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     
     func addUserDocumentListener() {
         userDocumentListener = db.collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
+            guard let document = documentSnapshot, let data = document.data() else {
                 print("Error fetching document: \(error!)")
                 return
             }
-            print(document.data())
-            if let chat = document.data()!["currentchat"] as? String {
+            print(data)
+            if let first = data["first"] as? String, let last = data["last"] as? String {
+                self.userFull = "\(first) \(last)"
+            }
+            if let chat = data["currentchat"] as? String {
                 self.currentchat = chat  // Update the user's current chat room
                 if self.currentchat.isEmpty {
                     print("Either your partner left you or you never had a currentchat. Going to Waiting now.")  // IF TIME SHOW THIS TO THE USER SOMEHOW.
@@ -149,7 +153,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
                     print("Error finding partner document: \(String(describing: error))")
                     return
                 }
-                self.navigationItem.title = partnerData["first"] as? String
+                if let first = partnerData["first"] as? String, let last = partnerData["last"] as? String {
+                    self.navigationItem.title = first
+                    self.partnerFull = "\(first) \(last)"
+                }
             }
         }
     }
