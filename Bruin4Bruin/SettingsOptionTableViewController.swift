@@ -35,9 +35,6 @@ class SettingsOptionTableViewController: UITableViewController {
             case 1:
                 print("Saved People")
             case 2:
-                print("Edit Profile")
-                performSegue(withIdentifier: "SettingsToEditProfile", sender: nil)
-            case 3:
                 print("Edit Account")
                 performSegue(withIdentifier: "SettingsToEditAccount", sender: nil)
             default:
