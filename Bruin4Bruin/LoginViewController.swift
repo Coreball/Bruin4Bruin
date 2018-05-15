@@ -20,11 +20,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        This is an example of adding a button programatically.
-//        let button = UIButton(type: .system) // let preferred over var here
-//        button.frame = CGRect(x: 200, y: 200, width: 200, height: 200)
-//        button.backgroundColor = .green
-//        self.view.addSubview(button)
+        self.navigationController?.navigationBar.shadowImage = UIImage()  // Get rid of ugly line
         
         let topColor = UIColor(red: (15/255.0), green: (118/255.0), blue: (128/255.0), alpha: 1)
         let bottomColor = UIColor(red: (84/255.0), green: (187/255.0), blue: (187/255.0), alpha: 1)
@@ -38,23 +34,10 @@ class LoginViewController: UIViewController {
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-
-        loginButton.layer.borderColor = UIColor.white.cgColor
-        loginButton.layer.borderWidth = 0.75
-        
-        usernameTextField.layer.masksToBounds = true
-        usernameTextField.layer.borderColor = UIColor.white.cgColor
-        usernameTextField.layer.borderWidth = 0.75
-        usernameTextField.layer.cornerRadius = 6
-        
-        usernameTextField.layer.masksToBounds = true
-        passwordTextField.layer.borderColor = UIColor.white.cgColor
-        passwordTextField.layer.borderWidth = 0.75
-        passwordTextField.layer.cornerRadius = 6
-        
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

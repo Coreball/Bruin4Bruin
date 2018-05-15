@@ -37,20 +37,12 @@ UINavigationControllerDelegate{
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-        
-        //text field borders
-        for textbox in textFields {
-            textbox.layer.masksToBounds = true
-            textbox.layer.borderColor = UIColor.white.cgColor
-            textbox.layer.borderWidth = 0.75
-            textbox.layer.cornerRadius = 6
-            
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if isCreatingAccount {
-            saveButton.title = "Next"
+            saveButton.title = "Finish"
         } else if skipToMessaging {
             performSegue(withIdentifier: "EditAccountToMessaging", sender: nil)
         } else {
