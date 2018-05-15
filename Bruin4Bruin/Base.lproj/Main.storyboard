@@ -192,7 +192,7 @@
                     <navigationItem key="navigationItem" title="Messaging" id="mNs-S1-9ne">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="tGl-XE-4Qg">
                             <connections>
-                                <action selector="profilePressed:" destination="GKb-a7-sNk" id="mAO-cG-Eoc"/>
+                                <action selector="newConnectionPressed:" destination="GKb-a7-sNk" id="r1l-1C-oXO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="8Al-PP-N5v">
@@ -412,40 +412,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="qmM-po-qQG">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="gxv-pH-7EL" detailTextLabel="j3c-Ub-Srh" style="IBUITableViewCellStyleValue1" id="iec-zb-Qgg">
-                                        <rect key="frame" x="0.0" y="203" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iec-zb-Qgg" id="lU5-vW-vlF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="New Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gxv-pH-7EL">
-                                                    <rect key="frame" x="16" y="12" width="127" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j3c-Ub-Srh">
-                                                    <rect key="frame" x="348" y="12" width="11" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="0.19854987157534246" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <gestureRecognizers/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="LVC-xH-Wfh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="K36-nk-tra" detailTextLabel="yG4-sh-siw" style="IBUITableViewCellStyleValue1" id="UcD-7L-a0n">
-                                        <rect key="frame" x="0.0" y="283" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="203" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UcD-7L-a0n" id="PUz-96-6RH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -482,7 +452,6 @@
                     <connections>
                         <segue destination="HS0-1T-seu" kind="show" identifier="SettingsToEditAccount" id="quS-Pc-Mi5"/>
                         <segue destination="RgW-BC-TEn" kind="unwind" identifier="UnwindToLoginFromSettings" unwindAction="unwindToLoginWithSegue:" id="K6a-ds-EBp"/>
-                        <segue destination="hiO-oo-bLY" kind="presentation" identifier="SettingsToWaiting" id="aRT-6f-dda"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-nI-JVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -585,7 +554,7 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aRT-6f-dda"/>
+        <segue reference="6Fa-YR-vmn"/>
         <segue reference="quS-Pc-Mi5"/>
         <segue reference="Uyj-mA-cvY"/>
     </inferredMetricsTieBreakers>

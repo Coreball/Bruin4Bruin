@@ -41,16 +41,6 @@ class SettingsOptionTableViewController: UITableViewController {
                 print("Unexpected row index in section 0")
             }
         case 1:
-            print("New Connection")
-            let confirmAlert = UIAlertController(title: "New Connection", message: "This will end your current conversation!", preferredStyle: .alert)
-            confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-                self.performSegue(withIdentifier: "SettingsToWaiting", sender: nil)
-            }))
-            confirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Cancelled new connection")
-            }))
-            present(confirmAlert, animated: true, completion: nil)
-        case 2:
             print("Logout")
             performSegue(withIdentifier: "UnwindToLoginFromSettings", sender: nil)
         default:

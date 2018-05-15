@@ -87,7 +87,7 @@ class WaitingViewController: UIViewController {
                     self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
                 }
             } else {
-                print("No chat found.")  // Could have come from creating account
+                print("No chat found.")  // Could have come from creating account nvm I think that's the above currentchat.isempty one
             }
             self.addPoolListener()
             self.addJoinedChatListener()

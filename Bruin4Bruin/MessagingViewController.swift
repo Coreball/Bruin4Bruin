@@ -158,8 +158,15 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         performSegue(withIdentifier: "MessagingToSettings", sender: nil)
     }
     
-    @IBAction func profilePressed(_ sender: UIBarButtonItem) {
-        // View the other person's profile
+    @IBAction func newConnectionPressed(_ sender: UIBarButtonItem) {
+        let confirmAlert = UIAlertController(title: "New Connection", message: "This will end your current conversation!", preferredStyle: .alert)
+        confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "MessagingToWaiting", sender: nil)
+        }))
+        confirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancelled new connection")
+        }))
+        present(confirmAlert, animated: true, completion: nil)
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
