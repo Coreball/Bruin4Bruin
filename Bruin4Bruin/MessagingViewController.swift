@@ -88,10 +88,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         if let from = messages[indexPath.row].data()["from"] as? String, let time = messages[indexPath.row].data()["timestamp"] as? Timestamp {
             if from == uid {
                 cell.setRight()
-                cell.timestamp.text = userFull + " at " + DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
+                cell.timestamp.text = "\(userFull) on \(DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium))"
             } else {
                 cell.setLeft()
-                cell.timestamp.text = partnerFull + " at " + DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium)
+                cell.timestamp.text = "\(partnerFull) on \(DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium))"
             }
         } else {
             cell.setLeft()  // Shouldn't be used but here for testing purposes since not all have "from"
