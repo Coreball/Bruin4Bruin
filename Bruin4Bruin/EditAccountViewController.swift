@@ -20,6 +20,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     var isCreatingAccount = false
     var skipToMessaging = false
+    var originY: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +54,19 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height / 2
+            let distance = originY - keyboardSize.height
+            if distance < 0 {
+                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height * 0.75)
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        self.view.transform = .identity
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        originY = textField.frame.origin.y + textField.frame.height
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MessagingViewController: UIViewController, UITableViewDataSource {
+class MessagingViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
@@ -25,6 +25,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
     var currentchat = ""
     var userFull = ""
     var partnerFull = ""
+    var originY: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,33 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         // Do any additional setup after loading the view.
+        
+        messageField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))  // Hide keyboard when tapping outside field
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+        
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let distance = originY - keyboardSize.height
+            if distance < 0 {
+                self.view.transform = CGAffineTransform(translationX: 0, y: distance - originY)
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.transform = .identity
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        originY = textField.frame.origin.y + textField.frame.height
     }
     
     override func viewWillAppear(_ animated: Bool) {
