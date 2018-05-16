@@ -509,10 +509,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuZ-Nv-XD0">
+                                <rect key="frame" x="167" y="630" width="40" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="hiO-oo-bLY" eventType="touchUpInside" id="hTJ-dJ-ZmK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yuw-EP-h4H" firstAttribute="centerX" secondItem="YWh-3b-BVP" secondAttribute="centerX" id="QJs-Pb-asI"/>
+                            <constraint firstItem="f9H-dc-PFY" firstAttribute="bottom" secondItem="LuZ-Nv-XD0" secondAttribute="bottom" constant="10" id="hAw-5u-2A5"/>
+                            <constraint firstItem="LuZ-Nv-XD0" firstAttribute="centerX" secondItem="YWh-3b-BVP" secondAttribute="centerX" id="kGe-XN-Cav"/>
                             <constraint firstItem="Yuw-EP-h4H" firstAttribute="centerY" secondItem="YWh-3b-BVP" secondAttribute="centerY" id="zji-4c-Qgq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f9H-dc-PFY"/>
@@ -522,6 +534,7 @@
                         <outlet property="numberOfOthersInPoolLbl" destination="0nv-RC-RoH" id="ubi-Qq-CWs"/>
                         <segue destination="5jC-Ie-Jqk" kind="unwind" identifier="UnwindToMessagingFromWaiting" unwindAction="unwindToMessagingWithSegue:" id="THx-bg-xXj"/>
                         <segue destination="5jC-Ie-Jqk" kind="unwind" identifier="UnwindToEditAccountFromWaiting" unwindAction="unwindToEditAccountWithSegue:" id="ncc-4q-eWc"/>
+                        <segue destination="5jC-Ie-Jqk" kind="unwind" identifier="UnwindToLoginFromWaiting" unwindAction="unwindToLoginWithSegue:" id="8VL-O2-dX3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCa-qs-V3j" userLabel="First Responder" sceneMemberID="firstResponder"/>

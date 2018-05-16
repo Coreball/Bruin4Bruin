@@ -181,6 +181,10 @@ class WaitingViewController: UIViewController {
         }
     }
     
+    @IBAction func logoutPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "UnwindToLoginFromWaiting", sender: nil)
+    }
+    
     func segueToCorrectScreen() {
         if cameFromEditAccount {
             performSegue(withIdentifier: "UnwindToEditAccountFromWaiting", sender: nil)

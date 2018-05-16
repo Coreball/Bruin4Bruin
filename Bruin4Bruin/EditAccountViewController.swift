@@ -78,6 +78,12 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             saveButton.title = "Save"
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        for field in textFields {
+            field.resignFirstResponder()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,6 +103,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
                             "first" : self.textFields[3].text!,
                             "last" : self.textFields[4].text!,
                             "currentchat" : "",  // Needed for waiting screen to count as in pool
+                            "pwd" : self.textFields[1].text!,
                             "joined" : Timestamp()
                         ]) { err in
                             if let err = err {
