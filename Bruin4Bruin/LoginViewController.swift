@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,33 +35,52 @@ class LoginViewController: UIViewController {
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))  // Hide keyboard when tapping outside field
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
         
     }
     
-    @objc func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y = -0.1*self.view.frame.height // Move view 150 points upward
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 2
+            }
+        }
     }
     
-    @objc func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {  // View will appear also covers returning from another screen
         self.navigationController?.navigationBar.isHidden = true  // Hide the navbar
         errorLabel.isHidden = true  // Hide the error until needed
     }
-
     
+    override func viewWillDisappear(_ animated: Bool) {
+        // TODO remove the keyboard observers
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()  // Switch to password field
+        } else if textField == passwordTextField {
+            loginPressed(nil)  // Same as pressing Login
+        }
+        return true
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.navigationController?.navigationBar.isHidden = false  // Show the navbar again
@@ -70,7 +89,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func loginPressed(_ sender: UIButton) {
+    @IBAction func loginPressed(_ sender: UIButton?) {
         print("\(type(of: self)) login button pressed")
         if let email = usernameTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in  // Attempt to log in

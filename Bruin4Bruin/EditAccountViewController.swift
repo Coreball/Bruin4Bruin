@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate{
+UINavigationControllerDelegate, UITextFieldDelegate {
     
     let db = Firestore.firestore()
     
@@ -37,7 +37,30 @@ UINavigationControllerDelegate{
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
-
+        
+        // Text fields
+        for field in textFields {
+            field.delegate = self
+        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))  // Hide keyboard when tapping outside field
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(EditAccountViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(EditAccountViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+        
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 2
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +158,10 @@ UINavigationControllerDelegate{
         return isValid
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)  // Hide field when pressing return button
+        return true
+    }
     
     @IBAction func accessImage(_ sender: UITapGestureRecognizer) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
