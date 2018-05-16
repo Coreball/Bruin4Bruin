@@ -136,7 +136,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-Lm-LaC">
                                                                     <rect key="frame" x="0.0" y="25.5" width="351" height="10"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -164,7 +164,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="301" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIZ-Jm-cx6" customClass="PrettyButton" customModule="Bruin4Bruin" customModuleProvider="target">
                                                 <rect key="frame" x="309" y="0.0" width="50" height="30"/>
@@ -555,7 +555,7 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BKZ-Lg-Mem"/>
+        <segue reference="6Fa-YR-vmn"/>
         <segue reference="9VR-w3-oyN"/>
         <segue reference="Uyj-mA-cvY"/>
     </inferredMetricsTieBreakers>

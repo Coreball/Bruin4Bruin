@@ -55,6 +55,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
         
+        self.messagingTableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -89,6 +91,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         Auth.auth().removeStateDidChangeListener(handle!)
         userDocumentListener?.remove()
         messagesListener?.remove()
+        messageField.resignFirstResponder()
         // Are these in the right order??
     }
 
@@ -125,6 +128,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
             cell.setLeft()  // Shouldn't be used but here for testing purposes since not all have "from"
         }
         
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
         return cell
     }
     
@@ -157,7 +162,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
                 print("Error getting documents!: \(error!)")
                 return
             }
-            self.messages = documents  // Reloads everything, not necessarily the most efficient but it's simple
+            self.messages = documents.reversed()  // Reloads everything, not necessarily the most efficient but it's simple
+            
             self.messagingTableView.reloadData()  // Otherwise the table won't update when loads new messages
             let content = documents.map { $0["content"]! }
             print("Messages: \(content)")
@@ -189,6 +195,11 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendPressed(nil)  // Do the same thing as pressing the send button
+        return true
+    }
+    
     @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "MessagingToSettings", sender: nil)
     }
@@ -204,7 +215,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         present(confirmAlert, animated: true, completion: nil)
     }
     
-    @IBAction func sendPressed(_ sender: UIButton) {
+    @IBAction func sendPressed(_ sender: UIButton?) {
         if let text = messageField.text, !text.isEmpty, !currentchat.isEmpty {
             print("Sending: \(text)")
             messageField.text = ""
