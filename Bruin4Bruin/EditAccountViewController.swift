@@ -117,6 +117,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
                         profilePicRef.putData(UIImagePNGRepresentation(self.imageView.image!)!)  // Upload the profile picture
                     } else {
                         print(error!.localizedDescription)
+                        let confirmAlert = UIAlertController(title: "Error creating account", message: error!.localizedDescription, preferredStyle: .alert)
+                        confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(confirmAlert, animated: true, completion: nil)
                     }
                 }
             } else {
