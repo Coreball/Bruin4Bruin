@@ -21,6 +21,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     var isCreatingAccount = false
     var skipToMessaging = false
     var originY: CGFloat = 0.0
+    var prePopulatedOriginals: [String?] = Array<String?>(repeating: nil, count: 5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let distance = originY - keyboardSize.height
             if distance < 0 {
-                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height * 0.75)
+                self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height / 2)
             }
         }
     }
@@ -76,6 +77,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             performSegue(withIdentifier: "EditAccountToMessaging", sender: nil)
         } else {
             saveButton.title = "Save"
+            populateTextFields()
         }
     }
     
@@ -93,7 +95,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         if isCreatingAccount {
-            if validateTextFields(), let email = textFields[0].text, let password = textFields[1].text {
+            if validateTextFields(checkPassword: true), let email = textFields[0].text, let password = textFields[1].text {
                 Auth.auth().createUser(withEmail: email, password: password) { user, error in
                     if let user = user {
                         print("\(type(of: self)) successfully created new user")
@@ -127,13 +129,44 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             }
         } else {
             // save and return to settings
-            print("Pretending to save Edit Account")
-            performSegue(withIdentifier: "UnwindToSettingsFromEditAccount", sender: nil)
+            print("Save Edit Account")
+            var canSave: Bool
+            if !textFields[1].text!.isEmpty || !textFields[2].text!.isEmpty {
+                canSave = validateTextFields(checkPassword: true)
+            } else {
+                canSave = validateTextFields(checkPassword: false)
+            }
+            if canSave {
+                var proceed = true
+                if textFields[0].text != prePopulatedOriginals[0] {
+                    Auth.auth().currentUser?.updateEmail(to: textFields[0].text!, completion: nil)
+                }
+                if !textFields[1].text!.isEmpty {
+                    if textFields[1].text!.count >= 6 {
+                        Auth.auth().currentUser?.updatePassword(to: textFields[1].text!, completion: nil)
+                        db.collection("users").document(Auth.auth().currentUser!.uid).updateData(["pwd" : textFields[1].text!])
+                    } else {
+                        let confirmAlert = UIAlertController(title: "Error updating password", message: "Password must be at least 6 characters", preferredStyle: .alert)
+                        confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(confirmAlert, animated: true, completion: nil)
+                        proceed = false
+                    }
+                }
+                if textFields[3].text != prePopulatedOriginals[3] {
+                    db.collection("users").document(Auth.auth().currentUser!.uid).updateData(["first" : textFields[3].text!])
+                }
+                if textFields[4].text != prePopulatedOriginals[4] {
+                    db.collection("users").document(Auth.auth().currentUser!.uid).updateData(["last" : textFields[4].text!])
+                }
+                if proceed {
+                    performSegue(withIdentifier: "UnwindToSettingsFromEditAccount", sender: nil)
+                }
+            }
         }
     }
     
     
-    func validateTextFields() -> Bool {
+    func validateTextFields(checkPassword: Bool) -> Bool {
         
         var isValid = true
         
@@ -141,19 +174,23 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         
         if !emailTest.evaluate(with: textFields[0].text) {  // Test if email is valid
-            //textFields[0].layer.borderWidth = 0.75
             textFields[0].layer.borderColor = UIColor.red.cgColor
             isValid = false
         } else {
             textFields[0].layer.borderColor = UIColor.white.cgColor
         }
         
-        if textFields[1].text != textFields[2].text || textFields[1].text!.isEmpty {  // Test if passwords do not match or are empty
-            textFields[1].layer.borderColor = UIColor.red.cgColor
-            textFields[2].layer.borderColor = UIColor.red.cgColor
-            isValid = false
+        if checkPassword {  // We don't want to check password if we have already made account since they can't be pre-populated, only check if user wants it changed
+            if textFields[1].text != textFields[2].text || textFields[1].text!.isEmpty {  // Test if passwords do not match or are empty
+                textFields[1].layer.borderColor = UIColor.red.cgColor
+                textFields[2].layer.borderColor = UIColor.red.cgColor
+                isValid = false
+            } else {
+                textFields[1].layer.borderColor = UIColor.white.cgColor
+                textFields[2].layer.borderColor = UIColor.white.cgColor
+            }
         } else {
-            textFields[1].layer.borderColor = UIColor.white.cgColor
+            textFields[1].layer.borderColor = UIColor.white.cgColor  // Always valid password then
             textFields[2].layer.borderColor = UIColor.white.cgColor
         }
         
@@ -177,6 +214,26 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)  // Hide field when pressing return button
         return true
+    }
+    
+    func populateTextFields() {
+        prePopulatedOriginals = Array<String?>(repeating: nil, count: 5)
+        if let uid = Auth.auth().currentUser?.uid {
+            db.collection("users").document(uid).getDocument { document, error in
+                guard let document = document, document.exists, let data = document.data() else {
+                    print("Error getting document for pre-population: \(String(describing: error))")
+                    return
+                }
+                self.prePopulatedOriginals[3] = data["first"] as? String ?? ""  // I'm using that nil-coalescing operator
+                self.prePopulatedOriginals[4] = data["last"] as? String ?? ""
+                self.textFields[3].text = self.prePopulatedOriginals[3]
+                self.textFields[4].text = self.prePopulatedOriginals[4]
+            }
+            prePopulatedOriginals[0] = Auth.auth().currentUser?.email
+            textFields[0].text = prePopulatedOriginals[0]
+        } else {
+            print("Could not pre-populate text fields!")
+        }
     }
     
     @IBAction func accessImage(_ sender: UITapGestureRecognizer) {
