@@ -50,7 +50,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))  // Hide keyboard when tapping outside field
         tap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tap)
+        self.messagingTableView.addGestureRecognizer(tap)
         
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
