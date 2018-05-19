@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var stacc: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +52,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height / 2
+                if UIScreen.main.nativeBounds.height == 1136 {  // If iPhone SE
+                    stacc.spacing = 4
+                }
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
+        if UIScreen.main.nativeBounds.height == 1136 {  // If iPhone SE
+            stacc.spacing = 10
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {  // View will appear also covers returning from another screen

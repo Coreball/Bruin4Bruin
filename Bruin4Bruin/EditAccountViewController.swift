@@ -17,6 +17,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet var textFields: [UITextField]!  // Email, Password, Confirm Password, First Name, Last Name in that order
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var outerStack: UIStackView!
+    @IBOutlet weak var innerStack: UIStackView!
     
     var isCreatingAccount = false
     var skipToMessaging = false
@@ -40,6 +42,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
+        // Image view
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = self.view.frame.width * 0.15
+        
         // Text fields
         for field in textFields {
             field.delegate = self
@@ -58,12 +64,20 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             let distance = originY - keyboardSize.height
             if distance < 0 {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height / 2)
+                if UIScreen.main.nativeBounds.height == 1136 {  // If iPhone SE
+                    outerStack.spacing = 8
+                    innerStack.spacing = 4
+                }
             }
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {  // If iPhone SE
         self.view.transform = .identity
+        if UIScreen.main.nativeBounds.height == 1136 {
+            outerStack.spacing = 20
+            innerStack.spacing = 10
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
