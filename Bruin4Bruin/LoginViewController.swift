@@ -13,7 +13,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var stacc: UIStackView!
     
@@ -69,7 +68,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {  // View will appear also covers returning from another screen
         self.navigationController?.navigationBar.isHidden = true  // Hide the navbar
-        errorLabel.isHidden = true  // Hide the error until needed
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,8 +111,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "LoginToMessaging", sender: nil)
                 } else {
                     print(error!.localizedDescription)
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = error!.localizedDescription  // If have time write some better error messages
+                    let confirmAlert = UIAlertController(title: "Login Error", message: error!.localizedDescription, preferredStyle: .alert)
+                    confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(confirmAlert, animated: true, completion: nil)
                 }
             }
         }
