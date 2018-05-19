@@ -17,6 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var stacc: UIStackView!
     
+    let gradientLayer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,7 +31,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let gradientLocations: [Float] = [0.0, 1.0]
         
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations as [NSNumber]
         
@@ -74,6 +75,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        gradientLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
     }
     
     override func didReceiveMemoryWarning() {

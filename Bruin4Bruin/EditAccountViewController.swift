@@ -24,6 +24,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     var skipToMessaging = false
     var originY: CGFloat = 0.0
     var prePopulatedOriginals: [String?] = Array<String?>(repeating: nil, count: 5)
+    let gradientLayer = CAGradientLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,6 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let gradientLocations: [Float] = [0.0, 1.0]
         
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations as [NSNumber]
         
@@ -99,6 +99,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         for field in textFields {
             field.resignFirstResponder()
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        gradientLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
     }
 
     override func didReceiveMemoryWarning() {

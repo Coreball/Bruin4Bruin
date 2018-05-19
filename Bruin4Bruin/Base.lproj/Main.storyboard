@@ -81,7 +81,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qW5-9A-mmM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3tS-4O-9KC"/>
                             <constraint firstItem="qW5-9A-mmM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4Nn-UQ-eWv"/>
@@ -182,7 +182,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GcN-j6-j4Z" firstAttribute="top" secondItem="6P6-O5-QnR" secondAttribute="top" id="3Bf-Es-RxX"/>
                             <constraint firstItem="6P6-O5-QnR" firstAttribute="bottom" secondItem="GcN-j6-j4Z" secondAttribute="bottom" constant="8" id="E9d-Td-yBt"/>
@@ -277,7 +277,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ciU-Jl-dFS" firstAttribute="height" secondItem="ePQ-e3-rGc" secondAttribute="width" multiplier="0.3" id="5Ev-En-J28"/>
                             <constraint firstItem="dMX-f6-6dm" firstAttribute="centerY" secondItem="YUt-2d-E2s" secondAttribute="centerY" id="XEc-xN-QBG"/>
@@ -514,7 +514,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3294117647" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yuw-EP-h4H" firstAttribute="centerX" secondItem="YWh-3b-BVP" secondAttribute="centerX" id="QJs-Pb-asI"/>
                             <constraint firstItem="f9H-dc-PFY" firstAttribute="bottom" secondItem="LuZ-Nv-XD0" secondAttribute="bottom" constant="10" id="hAw-5u-2A5"/>
@@ -562,8 +562,8 @@
         <image name="defaultPhoto" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BKZ-Lg-Mem"/>
+        <segue reference="6Fa-YR-vmn"/>
         <segue reference="9VR-w3-oyN"/>
-        <segue reference="Uyj-mA-cvY"/>
+        <segue reference="aFt-GS-q3a"/>
     </inferredMetricsTieBreakers>
 </document>

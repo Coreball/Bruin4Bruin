@@ -26,6 +26,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
     var userFull = ""
     var partnerFull = ""
     var originY: CGFloat = 0.0
+    let gradientLayer = CAGradientLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let gradientLocations: [Float] = [0.0, 1.0]
         
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations as [NSNumber]
         
@@ -93,6 +93,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         messagesListener?.remove()
         messageField.resignFirstResponder()
         // Are these in the right order??
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        gradientLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
     }
 
     override func didReceiveMemoryWarning() {

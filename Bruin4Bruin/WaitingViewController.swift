@@ -25,12 +25,12 @@ class WaitingViewController: UIViewController {
     var currentchat = ""
     var partner = ""
     var othersInPool = [String]()
+    let gradientLayer = CAGradientLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //change background
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pineapples")!)
+        // Gradient
         
         let topColor = UIColor(red: (15/255.0), green: (118/255.0), blue: (128/255.0), alpha: 1)
         let bottomColor = UIColor(red: (84/255.0), green: (187/255.0), blue: (187/255.0), alpha: 1)
@@ -38,7 +38,6 @@ class WaitingViewController: UIViewController {
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let gradientLocations: [Float] = [0.0, 1.0]
         
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations as [NSNumber]
         
@@ -62,6 +61,10 @@ class WaitingViewController: UIViewController {
         poolListener?.remove()
         joinedChatListener?.remove()
         // Right order??
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        gradientLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
     }
 
     override func didReceiveMemoryWarning() {
