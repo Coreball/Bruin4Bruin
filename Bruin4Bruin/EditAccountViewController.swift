@@ -19,6 +19,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var outerStack: UIStackView!
     @IBOutlet weak var innerStack: UIStackView!
+    @IBOutlet weak var emailStack: UIStackView!
+    @IBOutlet weak var nameStack: UIStackView!
     
     var isCreatingAccount = false
     var skipToMessaging = false
@@ -44,7 +46,11 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
         // Image view
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = self.view.frame.width * 0.15
+        if 120 < self.view.frame.width * 0.3 {
+            imageView.layer.cornerRadius = 60
+        } else {
+            imageView.layer.cornerRadius = self.view.frame.width * 0.15
+        }
         
         // Text fields
         for field in textFields {
@@ -65,8 +71,16 @@ UINavigationControllerDelegate, UITextFieldDelegate {
             if distance < 0 {
                 self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height / 2)
                 if UIScreen.main.nativeBounds.height == 1136 {  // If iPhone SE
-                    outerStack.spacing = 8
+                    if UIDevice.current.orientation.isPortrait {
+                        innerStack.spacing = 4
+                    }
+                    emailStack.spacing = 4
+                    nameStack.spacing = 4
+                }
+                if UIScreen.main.nativeBounds.height == 2048 && UIDevice.current.orientation.isLandscape {  // If iPad 9.7 in landscape
                     innerStack.spacing = 4
+                    emailStack.spacing = 4
+                    nameStack.spacing = 4
                 }
             }
         }
@@ -74,9 +88,10 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     @objc func keyboardWillHide(notification: NSNotification) {  // If iPhone SE
         self.view.transform = .identity
-        if UIScreen.main.nativeBounds.height == 1136 {
-            outerStack.spacing = 20
+        if UIScreen.main.nativeBounds.height == 1136 || UIScreen.main.nativeBounds.height == 2048 {
             innerStack.spacing = 10
+            emailStack.spacing = 10
+            nameStack.spacing = 10
         }
     }
     
@@ -103,6 +118,11 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         gradientLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        if 120 < size.width * 0.3 {
+            imageView.layer.cornerRadius = 60
+        } else {
+            imageView.layer.cornerRadius = size.width * 0.15
+        }
     }
 
     override func didReceiveMemoryWarning() {
