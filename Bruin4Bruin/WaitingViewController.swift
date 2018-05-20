@@ -24,6 +24,7 @@ class WaitingViewController: UIViewController {
     var uid = ""
     var currentchat = ""
     var partner = ""
+    var ended: Timestamp!
     var othersInPool = [String]()
     let gradientLayer = CAGradientLayer()
 
@@ -85,7 +86,8 @@ class WaitingViewController: UIViewController {
                     print("There is a currentchat field but it is empty.")
                     // do nothing if don't need to clear a chat or fix partner
                 } else {
-                    self.db.collection("chats").document(self.currentchat).updateData(["ended" : Timestamp()])  // Write that this chat has ended at this time
+                    self.ended = Timestamp()
+                    self.db.collection("chats").document(self.currentchat).updateData(["ended" : self.ended])  // Write that this chat has ended at this time
                     self.fixPartner()
                     self.db.collection("users").document(self.uid).updateData(["currentchat" : ""])
                 }
@@ -110,7 +112,56 @@ class WaitingViewController: UIViewController {
                 self.partner = data["peanutbutter"]! as! String
             }
             print("Previous partner: \(self.partner)")
+            self.addToHistory()
+            self.addToPartnerHistory()
             self.db.collection("users").document(self.partner).updateData(["currentchat" : ""])  // Remove the partner's current chat
+        }
+    }
+    
+    func addToHistory() {
+        print("Adding chat to user's history")
+        db.collection("users").document(self.partner).getDocument { document, error in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error getting partner's data: \(error?.localizedDescription ?? "Couldn't get error message?")")
+                return
+            }
+            print("boo")
+            if let first = data["first"], let last = data["last"] {
+                let friendlyPartnerName = "\(first) \(last)"
+                print("Friendly partner name: \(friendlyPartnerName)")
+                let history = self.db.collection("users").document(self.uid).collection("history").document(self.currentchat)
+                history.setData([
+                    "friendlypartner" : friendlyPartnerName,
+                    "ended" : self.ended
+                ]) { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
+    func addToPartnerHistory() {
+        print("Adding chat to partner's history")
+        db.collection("users").document(self.uid).getDocument { document, error in
+            guard let document = document, document.exists, let data = document.data() else {
+                print("Error getting my own data: \(error?.localizedDescription ?? "Couldn't get error message?")")
+                return
+            }
+            if let first = data["first"], let last = data["last"] {
+                let friendlyUserName = "\(first) \(last)"
+                print("Friendly user name: \(friendlyUserName)")
+                let history = self.db.collection("users").document(self.partner).collection("history").document(self.currentchat)
+                history.setData([
+                    "friendlypartner" : friendlyUserName,
+                    "ended" : self.ended
+                ]) { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
     
