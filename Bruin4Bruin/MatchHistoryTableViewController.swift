@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class MatchHistoryTableViewController: UITableViewController {
 
+    let db = Firestore.firestore()
+    
+    var matchHistory = [QueryDocumentSnapshot]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,10 +24,28 @@ class MatchHistoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateMatchHistory()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateMatchHistory() {
+        print("update match history")
+        db.collection("users").document(Auth.auth().currentUser!.uid).collection("history").order(by: "ended", descending: true).getDocuments {  querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error getting documents for match history: \(error!.localizedDescription)")
+                return
+            }
+            self.matchHistory = documents
+            let content = documents.map { $0["friendlypartner"]! }
+            print("Previous Partners: \(content)")
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -32,19 +55,25 @@ class MatchHistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return matchHistory.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MatchHistoryTableViewCell", for: indexPath) as? MatchHistoryTableViewCell else {
+            fatalError("Dequeued cell is not MatchHistoryTableViewCell")
+        }
 
         // Configure the cell...
+        if let name = matchHistory[indexPath.row].data()["friendlypartner"] as? String {
+            cell.partnerName.text = name
+        }
+        if let time = matchHistory[indexPath.row].data()["ended"] as? Timestamp {
+            cell.timestamp.text = "Ended on \(DateFormatter.localizedString(from: time.dateValue(), dateStyle: .medium, timeStyle: .medium))"
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

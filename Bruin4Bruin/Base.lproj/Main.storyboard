@@ -204,6 +204,7 @@
                         <viewLayoutGuide key="safeArea" id="6P6-O5-QnR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messaging" id="mNs-S1-9ne">
+                        <barButtonItem key="backBarButtonItem" title="Messaging" id="qV5-qs-Wg8"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="tGl-XE-4Qg">
                             <connections>
                                 <action selector="newConnectionPressed:" destination="GKb-a7-sNk" id="r1l-1C-oXO"/>
@@ -469,8 +470,8 @@
         <!--Match History-->
         <scene sceneID="XMJ-X2-tl5">
             <objects>
-                <tableViewController id="4FU-rO-qfW" userLabel="Match History" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pO5-Or-zzq">
+                <tableViewController id="4FU-rO-qfW" userLabel="Match History" customClass="MatchHistoryTableViewController" customModule="Bruin4Bruin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pO5-Or-zzq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.058823529409999999" green="0.46274509800000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -479,7 +480,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zpe-nx-Sos" id="SIh-bt-Ahz">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZZr-Ji-be3">
@@ -508,6 +509,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="partnerName" destination="K4T-v4-P2d" id="DPI-UW-mUX"/>
+                                    <outlet property="timestamp" destination="6mj-rr-S6Y" id="djj-Fp-jQs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

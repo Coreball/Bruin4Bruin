@@ -10,6 +10,9 @@ import UIKit
 
 class MatchHistoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var partnerName: UILabel!
+    @IBOutlet weak var timestamp: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
