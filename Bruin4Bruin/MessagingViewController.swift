@@ -52,6 +52,11 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
         tap.cancelsTouchesInView = false
         self.messagingTableView.addGestureRecognizer(tap)
         
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.showDebug(_:)))
+        doubleTap.cancelsTouchesInView = false
+        doubleTap.numberOfTouchesRequired = 2
+        self.view.addGestureRecognizer(doubleTap)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(MessagingViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
         
@@ -202,6 +207,18 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITextFi
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         sendPressed(nil)  // Do the same thing as pressing the send button
         return true
+    }
+    
+    @objc func showDebug(_ sender: UITapGestureRecognizer) {
+        let message = """
+        uid: \(uid)
+        currentchat: \(currentchat)
+        userFull: \(userFull)
+        partnerFull: \(partnerFull)
+        """
+        let confirmAlert = UIAlertController(title: "Debug Information", message: message, preferredStyle: .alert)
+        confirmAlert.addAction(UIAlertAction(title: "Close", style: .default))
+        present(confirmAlert, animated: true, completion: nil)
     }
     
     @IBAction func settingsPressed(_ sender: UIBarButtonItem) {

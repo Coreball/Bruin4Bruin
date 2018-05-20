@@ -26,6 +26,7 @@ class WaitingViewController: UIViewController {
     var partner = ""
     var ended: Timestamp!
     var othersInPool = [String]()
+    var poolUsers = [String]()
     let gradientLayer = CAGradientLayer()
 
     override func viewDidLoad() {
@@ -44,6 +45,11 @@ class WaitingViewController: UIViewController {
         
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.showDebug(_:)))
+        doubleTap.cancelsTouchesInView = false
+        doubleTap.numberOfTouchesRequired = 2
+        self.view.addGestureRecognizer(doubleTap)
         
     }
     
@@ -171,12 +177,17 @@ class WaitingViewController: UIViewController {
                 print("Error getting documents of users in pool: \(error!)")
                 return
             }
-            print("Bachelors and Bachelorettes: \(bachelors.map { $0["first"] })")
+            let firstNames = bachelors.map { $0["first"] } as! [String]
+            let lastNames = bachelors.map { $0["last"] } as! [String]
+            print("Bachelors and Bachelorettes: \(firstNames)")
             self.othersInPool = [String]()
-            for user in bachelors {
+            self.poolUsers = [String]()
+            for index in 0..<bachelors.count {
+                let user = bachelors[index]
                 if user.documentID != self.uid {
                     self.othersInPool += [user.documentID]
                 }
+                self.poolUsers += ["\(firstNames[index]) \(lastNames[index])"]
             }
             self.numberOfOthersInPoolLbl.text = String(self.othersInPool.count)
         }
@@ -211,6 +222,18 @@ class WaitingViewController: UIViewController {
         db.collection("users").document(partner).updateData(["currentchat" : newChat.documentID])
         print("Finished writing uid information with new chat")
         segueToCorrectScreen()
+    }
+    
+    @objc func showDebug(_ sender: UITapGestureRecognizer) {
+        let message = """
+        uid: \(uid)
+        currentchat: \(currentchat)
+        partner: \(partner)
+        poolUsers: \(poolUsers)
+        """
+        let confirmAlert = UIAlertController(title: "Debug Information", message: message, preferredStyle: .alert)
+        confirmAlert.addAction(UIAlertAction(title: "Close", style: .default))
+        present(confirmAlert, animated: true, completion: nil)
     }
     
     
