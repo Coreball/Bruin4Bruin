@@ -1,17 +1,18 @@
 //
-//  SettingsOptionTableViewController.swift
+//  MatchHistoryTableViewController.swift
 //  Bruin4Bruin
 //
-//  Created by Student on 5/9/18.
+//  Created by Changyuan Lin on 5/19/18.
 //  Copyright © 2018 Changyuan Lin. All rights reserved.
 //
 
 import UIKit
 
-class SettingsOptionTableViewController: UITableViewController {
-    
+class MatchHistoryTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,27 +27,25 @@ class SettingsOptionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            switch indexPath.row {
-            case 0:
-                print("Match History")
-                performSegue(withIdentifier: "SettingsToMatchHistory", sender: nil)
-            case 1:
-                print("Edit Account")
-                performSegue(withIdentifier: "SettingsToEditAccount", sender: nil)
-            default:
-                print("Unexpected row index in section 0")
-            }
-        case 1:
-            print("Logout")
-            performSegue(withIdentifier: "UnwindToLoginFromSettings", sender: nil)
-        default:
-            print("Unexpected section index in Settings")
-        }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
- 
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,9 +91,5 @@ class SettingsOptionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func unwindToSettings(segue: UIStoryboardSegue) {
-        // Come back to settings
-    }
 
 }

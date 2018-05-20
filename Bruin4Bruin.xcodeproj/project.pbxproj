@@ -19,6 +19,8 @@
 		3C5B3D08209678DE001B22EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */; };
 		3C6D745B20AAA1E3008BC0C8 /* PrettyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D745A20AAA1E3008BC0C8 /* PrettyTextField.swift */; };
 		3C6D745D20AAA624008BC0C8 /* PrettyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6D745C20AAA624008BC0C8 /* PrettyButton.swift */; };
+		3C7509FD20B107360030EAD9 /* MatchHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7509FC20B107360030EAD9 /* MatchHistoryTableViewController.swift */; };
+		3C7509FF20B107520030EAD9 /* MatchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7509FE20B107520030EAD9 /* MatchHistoryTableViewCell.swift */; };
 		3CE9B1A920A66A9000683267 /* MessagingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE9B1A820A66A9000683267 /* MessagingTableViewCell.swift */; };
 		3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */; };
 		3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE092B5209B982400567B33 /* EditAccountViewController.swift */; };
@@ -66,6 +68,8 @@
 		3C5B3D07209678DE001B22EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C6D745A20AAA1E3008BC0C8 /* PrettyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyTextField.swift; sourceTree = "<group>"; };
 		3C6D745C20AAA624008BC0C8 /* PrettyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyButton.swift; sourceTree = "<group>"; };
+		3C7509FC20B107360030EAD9 /* MatchHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryTableViewController.swift; sourceTree = "<group>"; };
+		3C7509FE20B107520030EAD9 /* MatchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		3CE9B1A820A66A9000683267 /* MessagingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingTableViewCell.swift; sourceTree = "<group>"; };
 		3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		3FE092B5209B982400567B33 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				3C5B3CDD20966C2B001B22EF /* Main.storyboard */,
 				3C066FD220A40ECA00742968 /* SettingsOptionTableViewController.swift */,
 				3F0FAF7320A4C9FE006BB50E /* WaitingViewController.swift */,
+				3C7509FC20B107360030EAD9 /* MatchHistoryTableViewController.swift */,
+				3C7509FE20B107520030EAD9 /* MatchHistoryTableViewCell.swift */,
 				3C6D745A20AAA1E3008BC0C8 /* PrettyTextField.swift */,
 				3C6D745C20AAA624008BC0C8 /* PrettyButton.swift */,
 				3C5B3CE020966C2B001B22EF /* Assets.xcassets */,
@@ -422,9 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0FAF7420A4C9FE006BB50E /* WaitingViewController.swift in Sources */,
+				3C7509FF20B107520030EAD9 /* MatchHistoryTableViewCell.swift in Sources */,
 				3C066FD320A40ECA00742968 /* SettingsOptionTableViewController.swift in Sources */,
 				3FE092B6209B982400567B33 /* EditAccountViewController.swift in Sources */,
 				3C6D745D20AAA624008BC0C8 /* PrettyButton.swift in Sources */,
+				3C7509FD20B107360030EAD9 /* MatchHistoryTableViewController.swift in Sources */,
 				3C5B3CDC20966C2B001B22EF /* LoginViewController.swift in Sources */,
 				3C6D745B20AAA1E3008BC0C8 /* PrettyTextField.swift in Sources */,
 				3C5B3CDA20966C2B001B22EF /* AppDelegate.swift in Sources */,
